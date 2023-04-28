@@ -1,14 +1,13 @@
 package org.example;
 
-
+/**
+ * By the software team of UOMSystemX
+ */
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-/**
- * By the software team of UOMSystemX
- */
 public class AppTest 
     extends TestCase
 {
