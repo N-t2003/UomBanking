@@ -7,10 +7,12 @@
 <hibernate-configuration>
     <session-factory>
         <property name = "hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name = "hibernate.connection.url">jdbc:sqlite:database2.db</property>
+        <property name = "hibernate.connection.url">jdbc:sqlite:database2.db</property> //Change the database path
         <property name = "hibernate.connection.username">root</property>
+        <property name = "hibernate.connection.password">rot123</property>
         <property name = "hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
-        <property name = "hbm2ddl.auto">update</property>
-        <property name="show_sql">true</property>
+        <property name = "hbm2ddl.auto">create</property> //Once the database is created, change this property to update
+        <property name = "show_sql">true</property>
+        <mapping resource = "User.Class"/> //Change the class name
     </session-factory>
 </hibernate-configuration>
