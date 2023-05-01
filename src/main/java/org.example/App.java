@@ -23,7 +23,7 @@ public class App {
         Session session = sessionFactory.openSession(); //using the session to fetch data from the database(line 31)
 
         Transaction tx = session.beginTransaction();
-
+//adfsada
 //      Creating a new user class
         User user1 = new User();
         User user2 = new User();
