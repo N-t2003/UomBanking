@@ -1,6 +1,7 @@
 
 public class Client {
 
+
     private String firstName, lastName, email, address, username, password;
     private int phoneNumber;
 
@@ -19,6 +20,10 @@ public class Client {
     public void printInfo(){
 
      //soon
+
+    public static void main(String[] main){
+        System.out.println("HiHIHIHIHIHIH");
+
     }
 
     //Δεν χρειαζόμαστε Getters and Setters επειδή θα επικοινωνούμε απευθείας με την Βάση
