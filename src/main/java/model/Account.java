@@ -28,7 +28,7 @@ public class Account {
 
     public int genID(){
         //Δημιουργία ενός τυχαίου ID με 8 χαρακτήρες π.χ. kHFujh%4
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        String characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
         int length = 8;
         Random random = new Random();
         StringBuilder builder = new StringBuilder();
