@@ -1,3 +1,4 @@
+/*package model;
 
 public class Client {
 
@@ -28,3 +29,6 @@ public class Client {
 
     //Δεν χρειαζόμαστε Getters and Setters επειδή θα επικοινωνούμε απευθείας με την Βάση
 }
+
+
+ */

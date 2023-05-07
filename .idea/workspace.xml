@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="Account.java and Client.java was created!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-    </list>
+    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +35,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editor.preferences.import"
   }
 }]]></component>
@@ -83,12 +79,52 @@
       <option name="project" value="LOCAL" />
       <updated>1683414706203</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Account.java and Client.java was created!">
+      <created>1683414803389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683414803389</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Account.java and Client.java was created!">
+      <created>1683414846852</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683414846852</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Account.java and Client.java was created!">
+      <created>1683461353678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683461353678</updated>
+    </task>
+    <task id="LOCAL-00006" summary="PDF start">
+      <created>1683461504629</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683461504629</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="EISAITOP" />
     <MESSAGE value="Account.java and Client.java was created!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account.java and Client.java was created!" />
+    <MESSAGE value="PDF start" />
+    <option name="LAST_COMMIT_MESSAGE" value="PDF start" />
   </component>
 </project>
