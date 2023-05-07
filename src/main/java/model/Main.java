@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
        /* try {
-            // Create aa new Document object
+            // Create aaa new Document object
             Document document = new Document();
             // Set the output file name and location
             PdfWriter.getInstance(document, new FileOutputStream("C:/Users/giann/Desktop/OSparEinaiArxidi.pdf"));
