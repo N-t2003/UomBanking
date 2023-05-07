@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start" />
+    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UOM_LOGO_3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/WelcomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/images/UOM_LOGO_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/images/Unknown.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/images/UserIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/test2432" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,14 +51,38 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "ToolWindow",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
     "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.import"
+    "settings.editor.selected.configurable": "discord-application"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/images" />
+      <recent name="$PROJECT_DIR$/src/main/java/gui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/images" />
+      <recent name="$PROJECT_DIR$/src/main/java/gui" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
   <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.App" />
+      <module name="UomBankingApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Test1212" />
       <method v="2">
@@ -126,5 +167,19 @@
     <MESSAGE value="Account.java and Client.java was created!" />
     <MESSAGE value="PDF start" />
     <option name="LAST_COMMIT_MESSAGE" value="PDF start" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="UomBankingApp" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file:///Users/dimsparagis/Documents/UomBankingApp}" type="462c0819:PsiDirectoryNode" />
+      </path>
+      <path>
+        <item name="UomBankingApp" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file:///Users/dimsparagis/Documents/UomBankingApp}" type="462c0819:PsiDirectoryNode" />
+        <item name="dir{file:///Users/dimsparagis/Documents/UomBankingApp/src}" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>
