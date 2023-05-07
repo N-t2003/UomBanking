@@ -1,3 +1,6 @@
+/*
+package model;
+
 import java.util.Random;
 import java.util.ArrayList;
 public class Account {
@@ -50,3 +53,5 @@ public class Account {
 
 
 }
+
+ */
