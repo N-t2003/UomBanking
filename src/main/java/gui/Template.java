@@ -27,22 +27,13 @@ public class Template extends JFrame {
         logo.setBounds(0, 0, 150, 30);
         logo.setSize(100, 100);
 
-        ImageIcon icon = new ImageIcon("/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images/UOM_LOGO_3.png");
-        Image img = icon.getImage();
-        Image newImg = img.getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH); //resizing the image to fit the label
-        ImageIcon scaledIcon = new ImageIcon(newImg);
-        logo.setIcon(scaledIcon);
+        logo.setIcon(Utils.setLabelIcon("src/main/java/images/UOM_LOGO_3.png", logo));
 
 //      Setting up JLabel accountIcon
         accountIcon.setBounds(1130, 10, 150, 30);
         accountIcon.setSize(50, 50);
 
-        ImageIcon icon2 = new ImageIcon("/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images/UserIcon.png");
-        Image img2 = icon2.getImage();
-        Image newImg2 = img2.getScaledInstance(accountIcon.getWidth(), accountIcon.getHeight(), Image.SCALE_SMOOTH); //resizing the image to fit the label
-        ImageIcon scaledIcon2 = new ImageIcon(newImg2);
-        accountIcon.setIcon(scaledIcon2);
-
+        accountIcon.setIcon(Utils.setLabelIcon("src/main/java/images/UserIcon.png", accountIcon));
 
 //      Setting up JLabel name
         name.setBounds(10, 730, 150, 30);
