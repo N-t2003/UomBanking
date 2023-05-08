@@ -38,6 +38,30 @@ public class CreateAccount extends JFrame {
 //      Setting up the panel
         infoPanel = new CreateAccountPanel();
 
+//      Setting up the create your account button
+        createAccountButton.setBounds(450, 700, 200, 50);
+        createAccountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createAccount.dispose();
+                new MainFrame();
+            }
+        });
+
+//      Setting up the login label
+        loginLabel.setBounds(920, 700, 200, 50);
+        loginLabel.setFont(new Font("Courier", Font.PLAIN, 12));
+
+//      Setting up login button
+        loginButton.setBounds(1090, 700, 100, 50);
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createAccount.dispose();
+                new WelcomePage();
+            }
+        });
+
 //      Adding components to the frame
         createAccount.add(header);
         createAccount.add(subHeader);
@@ -45,14 +69,14 @@ public class CreateAccount extends JFrame {
         createAccount.add(loginLabel);
         createAccount.add(loginButton);
         createAccount.add(infoPanel);
+        createAccount.add(loginLabel);
+        createAccount.add(loginButton);
 
 //      Basic settings
         createAccount.setLayout(null);
         createAccount.setVisible(true);
         createAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
 }
 
 class CreateAccountPanel extends JPanel{
@@ -62,6 +86,7 @@ class CreateAccountPanel extends JPanel{
     private JButton signInButton;
     private JLabel message;
     private JLabel checkLabel;
+    private JComboBox costPerTransaction;
     public CreateAccountPanel() {
         showPassword = new JCheckBox("Show Password");
         passwordField = new JPasswordField(10);
@@ -69,8 +94,8 @@ class CreateAccountPanel extends JPanel{
         signInButton = new JButton("Sign In");
         message = new JLabel("Make sure to use a strong password");
         checkLabel = new JLabel();
-        checkLabel.setSize(10, 10);
-        checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Invalid.png", checkLabel));
+
+        costPerTransaction = new JComboBox();
 
 //      Setting up the message label
         message.setFont(new Font("Courier", Font.PLAIN, 10));
@@ -88,25 +113,34 @@ class CreateAccountPanel extends JPanel{
             }
         });
 
+//      Setting up the costPerTransaction combo box
+        DefaultComboBoxModel costPerTransactionModel = new DefaultComboBoxModel();
+        costPerTransactionModel.addElement("100");
+        costPerTransactionModel.addElement("500");
+        costPerTransactionModel.addElement("Other");
+        costPerTransaction.setModel(costPerTransactionModel);
+        costPerTransaction.setSelectedIndex(0);
+        costPerTransaction.setEditable(true);
+
+//      Setting the confirm password validation label
+        checkLabel.setSize(new Dimension(20, 20));
+
+
 //      Setting up the confirm password field
-//        passwordField2.setEchoChar('•');
-//        passwordField2.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (passwordField2.getPassword().length != 0) {
-//                    if (passwordField2.getText().equals(passwordField.getText())) {
-//                        checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Valid.png", checkLabel));
-//                        checkLabel.setSize(10,10);
-//                        checkLabel.setVisible(true);
-//                    } else {
-//                        checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Invalid.png", checkLabel));
-//                        checkLabel.setVisible(true);
-//                        checkLabel.setSize(100,100);
-//                    }
-//                }
-//
-//            }
-//        });
+        passwordField2.setEchoChar('•');
+        if (passwordField2.getPassword().length != 0) {
+            if (passwordField2.getText().equals(passwordField.getText())) {
+                checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Valid.png", checkLabel));
+                checkLabel.setSize(20,20);
+                checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
+                checkLabel.setVisible(true);
+            } else {
+                checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Invalid.png", checkLabel));
+                checkLabel.setSize(20,20);                                                     
+                checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
+                checkLabel.setVisible(true);
+            }
+        }
 
 //      Setting up signInButton
         signInButton.addActionListener(new ActionListener() {
@@ -119,7 +153,7 @@ class CreateAccountPanel extends JPanel{
 //      Basic setup for the panel
         setBounds(350, 200, 500, 500);
         setBackground(Color.LIGHT_GRAY);
-        Border border = BorderFactory.createTitledBorder("Information");
+        Border border = BorderFactory.createTitledBorder("Enter your information");
         setBorder(border);
         setSize(new Dimension(500, 450));
         layoutComponents();
@@ -214,13 +248,13 @@ class CreateAccountPanel extends JPanel{
         add(showPassword, gc);
 
 //      Sixth row-First column
-        gc.gridy = gc.gridy + 2;
-        gc.gridx = 0;
-        gc.weighty = 0.1;
-        gc.weightx = 1;
-        gc.anchor = GridBagConstraints.FIRST_LINE_END;
-        gc.insets = new Insets(0, 0, 0, 0);
-        add(message, gc);
+//        gc.gridy++;
+//        gc.gridx++;
+//        gc.weighty = 0.1;
+//        gc.weightx = 1;
+//        gc.anchor = GridBagConstraints.LAST_LINE_END;
+//        gc.insets = new Insets(0, 0, 0, 0);
+//        add(message, gc);
 
 //      Seventh row-First column
         gc.gridy++;
@@ -241,8 +275,20 @@ class CreateAccountPanel extends JPanel{
         gc.gridx++;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
-        checkLabel.setVisible(false);
         add(checkLabel, gc);
+
+//      Eighth row-First column
+        gc.gridy++;
+        gc.gridx = 0;
+        gc.anchor = GridBagConstraints.FIRST_LINE_END;
+        gc.insets = new Insets(0, 0, 0, 0);
+        add(new JLabel("Cost per transaction"), gc);
+
+//      Eighth row-Second column
+        gc.gridx++;
+        gc.anchor = GridBagConstraints.FIRST_LINE_START;
+        gc.insets = new Insets(0, 0, 0, 0);
+        add(costPerTransaction, gc);
 
         return null;
     }

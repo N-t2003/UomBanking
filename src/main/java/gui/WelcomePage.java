@@ -36,11 +36,12 @@ public class WelcomePage extends JFrame {
          infoPanel = new InfoPanel();
 
 //       Setting up createAccountButton
-         createAccountButton.setBounds(600, 675, 200, 50);
+         createAccountButton.setBounds(590, 675, 200, 50);
          createAccountButton.setFont(new Font("Courier", Font.PLAIN, 15));
          createAccountButton.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
+                 welcomePage.dispose();
                  new CreateAccount();
              }
          });
