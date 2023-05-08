@@ -9,40 +9,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class WelcomePage extends JFrame {
-
-    private JLabel logo;
-    private JLabel name;
     private JLabel header;
     private JLabel signIn;
     private JPanel infoPanel;
-     public WelcomePage() {
-//       Setting the title of the frame
-         super("Welcome to UOMSystemX");
+    private JButton createAccountButton;
+    private JLabel message;
 
+     public WelcomePage() {
+         JFrame welcomePage = new TemplateNotLoggedIn();
 
 //       Setting layout manager to null for absolute positioning
-         setLayout(null);
+         welcomePage.setLayout(null);
 
 //       Initializing components
-         logo = new JLabel("Logo");
-         name = new JLabel("UOMSystemX");
-         header = new JLabel("Welcome to UoMBanking");
+         header = Utils.setHeader("Welcome to UoMBanking");
          signIn = new JLabel("Sign In");
          infoPanel = new JPanel();
-
-//       Setting up JLabel logo
-         logo.setBounds(0, 0, 150, 30);
-         logo.setSize(100, 100);
-
-         logo.setIcon(Utils.setLabelIcon("/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images/UOM_LOGO_3.png", logo));
-
-//       Setting up JLabel name
-         name.setBounds(10, 730, 150, 30);
-         name.setFont(new Font("Courier", Font.PLAIN, 25));
-
-//       Setting up JLabel header
-         header.setBounds(350, 100, 1000, 100);
-         header.setFont(new Font("Courier", Font.PLAIN, 45));
+         createAccountButton = new JButton("Create an account");
+         message = new JLabel("New Here?");
 
 //       Setting up JLabel signIn
          signIn.setBounds(550, 300, 1000, 100);
@@ -51,20 +35,32 @@ public class WelcomePage extends JFrame {
 //       Setting up the information panel
          infoPanel = new InfoPanel();
 
+//       Setting up createAccountButton
+         createAccountButton.setBounds(600, 675, 200, 50);
+         createAccountButton.setFont(new Font("Courier", Font.PLAIN, 15));
+         createAccountButton.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 new CreateAccount();
+             }
+         });
+
+//       Setting up message
+         message.setBounds(500, 650, 300, 100);
+         message.setFont(new Font("Courier", Font.PLAIN, 15));
+
 //       Adding components to the frame
-         add(logo);
-         add(name);
-         add(header);
-         add(signIn);
-         add(infoPanel);
+         welcomePage.add(header);
+         welcomePage.add(signIn);
+         welcomePage.add(infoPanel);
+         welcomePage.add(createAccountButton);
+         welcomePage.add(message);
 
 //       Basic setup for the frame
-         setVisible(true);
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         setMaximumSize(new Dimension(1200, 800));
-         setSize(1200, 800);
-         getContentPane().setBackground(Color.LIGHT_GRAY);
-         validate(); //validates the images
+         welcomePage.setVisible(true);
+         welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         welcomePage.getContentPane().setBackground(Color.LIGHT_GRAY);
+         welcomePage.validate(); //validates the images
      }
 }
 

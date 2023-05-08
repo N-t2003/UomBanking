@@ -14,4 +14,12 @@ public class Utils {
         Image newImg = img.getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH); //resizing the image to fit the label
         return new ImageIcon(newImg);
     }
+
+//  Used for setting a header
+    public static JLabel setHeader(String text) {
+        JLabel header = new JLabel(text);
+        header.setBounds(350, 100, 1000, 100);
+        header.setFont(new Font("Courier", Font.PLAIN, 45));
+        return header;
+    }
 }
