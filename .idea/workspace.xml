@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start" />
+    <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/CreateAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/TemplateNotLoggedIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/WelcomePage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +65,14 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Create Account">
+    <configuration name="Create Account" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="gui.MainTest" />
+      <module name="UomBankingApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.App" />
       <module name="UomBankingApp" />
@@ -79,6 +93,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Create Account" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
