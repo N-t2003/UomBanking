@@ -34,11 +34,7 @@ public class WelcomePage extends JFrame {
          logo.setBounds(0, 0, 150, 30);
          logo.setSize(100, 100);
 
-         ImageIcon icon = new ImageIcon("/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images/UOM_LOGO_3.png");
-         Image img = icon.getImage();
-         Image newImg = img.getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH); //resizing the image to fit the label
-         ImageIcon scaledIcon = new ImageIcon(newImg);
-         logo.setIcon(scaledIcon);
+         logo.setIcon(Utils.setLabelIcon("/Users/dimsparagis/Documents/UomBankingApp/src/main/java/images/UOM_LOGO_3.png", logo));
 
 //       Setting up JLabel name
          name.setBounds(10, 730, 150, 30);
