@@ -1,9 +1,9 @@
-/*
+
 package model;
 
 import java.util.Random;
 import java.util.ArrayList;
-public class Account {
+public abstract class Account {
 
     private double balance;
     private String ID;
@@ -29,7 +29,7 @@ public class Account {
         lList.add(loan); //προσθήκη ενός loan στην λίστα
     }
 
-    public int genID(){
+    public String genID(){
         //Δημιουργία ενός τυχαίου ID με 8 χαρακτήρες π.χ. kHFujh%4
         String characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
         int length = 8;
@@ -43,6 +43,7 @@ public class Account {
 
     }
 
+
     public ArrayList<Transaction> printTList() {
         return tList;
     }
@@ -54,4 +55,3 @@ public class Account {
 
 }
 
-*/

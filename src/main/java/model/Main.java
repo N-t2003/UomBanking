@@ -3,6 +3,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import org.example.User;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -125,7 +126,10 @@ public class Main {
 */
 
         // create client
-        Client cl = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
+        Client c1 = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
                 "akala den menw", "malaka", "tsapou");
+
+        Client c2 = new Client("Giannis", "Sfyrakis", "6097846767", "ppp@.cokm",
+                "Papafi", "fariggas", "tsapou");
 
     }  }

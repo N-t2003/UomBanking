@@ -25,7 +25,7 @@ public class App {
         Transaction tx = session.beginTransaction();
 
 //      Creating a new user class
-        User user2 = new User();
+       // User user2 = new User();
         User user1 = new User();
 
 //      Fetching a user from the database
@@ -33,11 +33,10 @@ public class App {
         System.out.println(user1);
 
 //      Adding columns to the database
-        user2.setEmail("dimsparagis@icloud.com");
-        user2.setId(123);
+       // user2.setEmail("dimsparagis@icloud.com");
 
 //      Saving the user
-        session.save(user2);
+        //session.save(user2);
         session.getTransaction().commit();
         session.close();
     }
