@@ -54,6 +54,12 @@ public class Main {
 
         */
 
+
+
+
+
+
+        /*
         // create a new document
         Document document = new Document();
 
@@ -116,3 +122,10 @@ public class Main {
 
     }
 }
+*/
+
+        // create client
+        Client cl = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
+                "akala den menw", "malaka", "tsapou");
+
+    }  }
