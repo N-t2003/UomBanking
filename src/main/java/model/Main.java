@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
        /* try {
-            // Create aa new Document object
+            // Create aaa new Document object
             Document document = new Document();
             // Set the output file name and location
             PdfWriter.getInstance(document, new FileOutputStream("C:/Users/giann/Desktop/OSparEinaiArxidi.pdf"));
@@ -54,6 +54,12 @@ public class Main {
 
         */
 
+
+
+
+
+
+        /*
         // create a new document
         Document document = new Document();
 
@@ -116,3 +122,10 @@ public class Main {
 
     }
 }
+*/
+
+        // create client
+        Client cl = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
+                "akala den menw", "malaka", "tsapou");
+
+    }  }
