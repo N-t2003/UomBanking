@@ -45,7 +45,6 @@ public class MainFrame extends JFrame {
             }
         });
 
-
 //      Adding components to the frame
         mainFrame.add(header);
         mainFrame.add(expensesPanel);

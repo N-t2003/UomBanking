@@ -106,11 +106,6 @@ public class Client {
     public void printInfo(){
 
     }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
 //  soon
 
 

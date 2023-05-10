@@ -42,8 +42,6 @@ public class Template extends JFrame {
 //      Setting up JLabel clientName
         clientName.setBounds(1115, 65, 150, 30);
         clientName.setFont(new Font("Courier", Font.PLAIN, 15));
-        Client testClient = new Client("Dimitris", "Sparagis", 694, "", "", "", "");
-        clientName.setText(testClient.getFirstName());
 
 
 //      Adding components to the frame

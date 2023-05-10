@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start">
-      <change afterPath="$PROJECT_DIR$/src/main/java/images/card.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Create Account">
+  <component name="RunManager" selected="Application.Log In">
     <configuration name="Create Account" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="gui.MainTest" />
       <module name="UomBankingApp" />
