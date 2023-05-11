@@ -98,7 +98,17 @@ public class WelcomePage extends JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     welcomePage.dispose();
-                    new MainFrame();
+                    try {
+                        new MainFrame();
+                    } catch (UnsupportedLookAndFeelException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (ClassNotFoundException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (InstantiationException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             });
 
