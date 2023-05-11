@@ -58,7 +58,17 @@ public class CreateAccount extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 createAccount.dispose();
-                new WelcomePage();
+                try {
+                    new WelcomePage();
+                } catch (UnsupportedLookAndFeelException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InstantiationException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IllegalAccessException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 

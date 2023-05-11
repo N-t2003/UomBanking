@@ -16,7 +16,7 @@ public class WelcomePage extends JFrame {
     private JLabel message;
     public JFrame welcomePage;
 
-     public WelcomePage() {
+     public WelcomePage() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
           welcomePage = new TemplateNotLoggedIn();
 
 //       Setting layout manager to null for absolute positioning
@@ -63,6 +63,8 @@ public class WelcomePage extends JFrame {
          welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          welcomePage.getContentPane().setBackground(Color.LIGHT_GRAY);
          welcomePage.validate(); //validates the images
+
+         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
      }
 
     class InfoPanel extends JPanel{
