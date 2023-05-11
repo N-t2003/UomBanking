@@ -21,7 +21,7 @@ public class Template extends JFrame {
         logo = new JLabel("Logo");
         name = new JLabel("UOMSystemX");
         accountIcon = new JLabel("Account");
-        clientName = new JLabel();
+        clientName = new JLabel("Name");
 
 //      Setting up JLabel logo
         logo.setBounds(0, 0, 150, 30);
@@ -40,9 +40,8 @@ public class Template extends JFrame {
         name.setFont(new Font("Courier", Font.PLAIN, 25));
 
 //      Setting up JLabel clientName
-        clientName.setBounds(1115, 65, 150, 30);
+        clientName.setBounds(1135, 65, 150, 30);
         clientName.setFont(new Font("Courier", Font.PLAIN, 15));
-
 
 //      Adding components to the frame
         add(logo);
