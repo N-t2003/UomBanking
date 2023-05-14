@@ -4,8 +4,12 @@ import javax.swing.*;
 
 public class MainTest {
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
+
+                new CreateNewCardFrame();
+
 
                new PreviewTransferFrame();
 
@@ -21,6 +25,7 @@ public class MainTest {
 //                    throw new RuntimeException(e);
 //                }
 
+adda
             }
         });
     }
