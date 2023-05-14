@@ -14,9 +14,10 @@ public class WelcomePage extends JFrame {
     private JPanel infoPanel;
     private JButton createAccountButton;
     private JLabel message;
+    public JFrame welcomePage;
 
-     public WelcomePage() {
-         JFrame welcomePage = new TemplateNotLoggedIn();
+     public WelcomePage() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+          welcomePage = new TemplateNotLoggedIn();
 
 //       Setting layout manager to null for absolute positioning
          welcomePage.setLayout(null);
@@ -62,104 +63,120 @@ public class WelcomePage extends JFrame {
          welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          welcomePage.getContentPane().setBackground(Color.LIGHT_GRAY);
          welcomePage.validate(); //validates the images
+
+         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
      }
-}
 
-class InfoPanel extends JPanel{
+    class InfoPanel extends JPanel{
 
-    private JCheckBox showPassword;
-    private JPasswordField passwordField;
-    private JButton signInButton;
+        private JCheckBox showPassword;
+        private JPasswordField passwordField;
+        public JButton signInButton;
 
-    public InfoPanel() {
+        public InfoPanel() {
 //      Initializing components
-        showPassword = new JCheckBox("Show Password");
-        passwordField = new JPasswordField(10);
-        signInButton = new JButton("Sign In");
+            showPassword = new JCheckBox("Show Password");
+            passwordField = new JPasswordField(10);
+            signInButton = new JButton("Sign In");
 
 //      Setting up showPassword button
-        passwordField.setEchoChar('•');
-        showPassword.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (showPassword.isSelected()) {
-                    passwordField.setEchoChar((char) 0);
-                } else {
-                    passwordField.setEchoChar('•');
+            passwordField.setEchoChar('•');
+            showPassword.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (showPassword.isSelected()) {
+                        passwordField.setEchoChar((char) 0);
+                    } else {
+                        passwordField.setEchoChar('•');
+                    }
                 }
-            }
-        });
+            });
 
 //      Setting up signInButton
-        signInButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MainFrame();
-            }
-        });
+            signInButton.addActionListener(new ActionListener() {
+                @Override
+
+                public void actionPerformed(ActionEvent e) {
+                    welcomePage.dispose();
+                    try {
+                        new MainFrame();
+                    } catch (UnsupportedLookAndFeelException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (ClassNotFoundException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (InstantiationException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
 
 //      Basic setup for the panel
-        setBounds(350, 400, 500, 300);
-        setBackground(Color.LIGHT_GRAY);
-        Border border = BorderFactory.createTitledBorder("Information");
-        setBorder(border);
-        setSize(new Dimension(500, 250));
-        layoutComponents();
-    }
+            setBounds(350, 400, 500, 300);
+            setBackground(Color.LIGHT_GRAY);
+            Border border = BorderFactory.createTitledBorder("Information");
+            setBorder(border);
+            setSize(new Dimension(500, 250));
+            layoutComponents();
+        }
 
-    public LayoutManager layoutComponents() {
-        setLayout(new GridBagLayout());
+        public LayoutManager layoutComponents() {
+            setLayout(new GridBagLayout());
 
-        GridBagConstraints gc = new GridBagConstraints();
+            GridBagConstraints gc = new GridBagConstraints();
 
 //      First row-First column
-        gc.gridy = 0;
+            gc.gridy = 0;
 
-        gc.weightx = 1;
-        gc.weighty = 0.1;
-        gc.gridx = 0;
-        gc.anchor = GridBagConstraints.LINE_END;
-        gc.insets = new Insets(0, 0, 0, 5);
-        add(new JLabel("Username"), gc);
+            gc.weightx = 1;
+            gc.weighty = 0.1;
+            gc.gridx = 0;
+            gc.anchor = GridBagConstraints.LINE_END;
+            gc.insets = new Insets(0, 0, 0, 5);
+            add(new JLabel("Username"), gc);
 
 //      First row-Second column
-        gc.gridx = 1;
-        gc.anchor = GridBagConstraints.LINE_START;
-        gc.insets = new Insets(0, 0, 0, 0);
-        add(new JTextField(10), gc);
+            gc.gridx = 1;
+            gc.anchor = GridBagConstraints.LINE_START;
+            gc.insets = new Insets(0, 0, 0, 0);
+            add(new JTextField(10), gc);
 
 //      Second row-First column
-        gc.gridy++;
+            gc.gridy++;
 
-        gc.weightx = 1;
-        gc.weighty = 0.1;
-        gc.gridx = 0;
-        gc.anchor = GridBagConstraints.FIRST_LINE_END;
-        gc.insets = new Insets(0, 0, 0, 5);
-        add(new JLabel("Password"), gc);
+            gc.weightx = 1;
+            gc.weighty = 0.1;
+            gc.gridx = 0;
+            gc.anchor = GridBagConstraints.FIRST_LINE_END;
+            gc.insets = new Insets(0, 0, 0, 5);
+            add(new JLabel("Password"), gc);
 
 //      Second row-Second column
-        gc.gridx = 1;
-        gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        gc.insets = new Insets(0, 0, 0, 0);
-        add(passwordField, gc);
+            gc.gridx = 1;
+            gc.anchor = GridBagConstraints.FIRST_LINE_START;
+            gc.insets = new Insets(0, 0, 0, 0);
+            add(passwordField, gc);
 
 //      Second row-Third column
-        gc.gridx = 2;
-        gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        gc.insets = new Insets(0, 0, 0, 0);
-        add(showPassword, gc);
+            gc.gridx = 2;
+            gc.anchor = GridBagConstraints.FIRST_LINE_START;
+            gc.insets = new Insets(0, 0, 0, 0);
+            add(showPassword, gc);
 
 //      Third row-First column
-        gc.gridy++;
-        gc.gridx = 1;
-        gc.weighty = 0.1;
-        gc.weightx = 1;
-        gc.insets = new Insets(0, 0, 0, 0);
-        add(signInButton, gc);
+            gc.gridy++;
+            gc.gridx = 1;
+            gc.weighty = 0.1;
+            gc.weightx = 1;
+            gc.insets = new Insets(0, 0, 0, 0);
+            add(signInButton, gc);
 
-        return null;
+            return null;
+        }
+
     }
-
 }
+
+
 

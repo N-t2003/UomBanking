@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
     private JButton transactionHistoryButton;
     private JButton loanButton;
 
-    public MainFrame() {
+    public MainFrame() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         JFrame mainFrame = new Template();
 
 //      Initializing components
@@ -56,6 +56,8 @@ public class MainFrame extends JFrame {
 //      Basic settings
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     }
 }
 
