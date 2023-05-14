@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+// ΔΕΝ ΕΧΕΙ ΥΛΟΠΟΙΗΘΕΙ Ο ΤΥΠΟΣ ΤΗΣ ΚΑΡΤΑΣ
 public class Card{
     private long cardNumber;
     private String dateExp;
@@ -16,10 +16,10 @@ public class Card{
     }
     
     public Card(long cardNumber, String dateExp, long cvv, int type) {
-        this.cardNumber = cardNumber;
-        this.dateExp = dateExp;
-        this.cvv = cvv;
-        this.type = type;
+        this.cardNumber = genNum();
+        this.dateExp = genDateExp();
+        this.cvv = genCVV();
+        this.type = type; //δεν εχει υλοποιηθεί
     }
 
     
