@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30ff399c-1647-4a2a-9dff-01259883de2f" name="Changes" comment="PDF start">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/PreviewDepositFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/PreviewWithdrawFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/PreviewDepositFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PreviewDepositFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Log In">
+  <component name="RunManager" selected="Application.PreviewDepositFrame">
     <configuration name="Create Account" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="gui.MainTest" />
       <module name="UomBankingApp" />
@@ -84,6 +85,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PreviewDepositFrame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="gui.MainTest" />
+      <module name="UomBankingApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PreviewWithdrawFrame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="gui.MainTest" />
+      <module name="UomBankingApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Test1212" />
       <method v="2">
@@ -99,6 +114,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Log In" />
+      <item itemvalue="Application.PreviewDepositFrame" />
+      <item itemvalue="Application.PreviewWithdrawFrame" />
       <item itemvalue="Application.Main page" />
       <item itemvalue="Application.Create Account" />
     </list>
