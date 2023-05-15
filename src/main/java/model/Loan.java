@@ -1,23 +1,16 @@
 package model;
 
-public class Loan extends Account{
+public class Loan {
     private double loanAmount;
     private String dateExp; //δεν χρησιμοποιήθηκε κάπου με βάση το word
     private int doses;
 
     
-    public Loan(double balance, long IBAN, int ID, Client client) {
-        super(balance, IBAN, ID, client);
-    }
-
-
-    public Loan(double balance, long IBAN, int ID, Client client, double loanAmount, String dateExp, int doses) {
-        super(balance, IBAN, ID, client);
+    public Loan(double loanAmount, String dateExp, int doses) {
         this.loanAmount = loanAmount;
         this.dateExp = dateExp;
         this.doses = doses;
     }
-
 
     public double loanDose(double loanAmount,int doses){
         double payableDose=0;
@@ -27,10 +20,10 @@ public class Loan extends Account{
         return payableDose;
     }
 
-    public void calculateNewLoanAmount(double loanAmaount,int doses,double balance){
+    public void calculateNewLoanAmount(double loanAmaount,int doses,double balance, Account a1){
         double pDose= loanDose(loanAmount, doses);
         double newLoanAmount;
-        setBalance(calculateNewBalanace(balance,pDose)); 
+        a1.setBalance(calculateNewBalanace(balance,pDose)); 
         newLoanAmount=loanAmaount-pDose;
         setLoanAmount(newLoanAmount);
         doses--;
