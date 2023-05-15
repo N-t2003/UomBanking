@@ -1,8 +1,8 @@
 package model;
 import java.util.ArrayList;
-
+    //δεν λειτουργει το exception, θα το φτιάξω
     /*  εφαρμογή στην main
-    
+        
         Type t1=new Type(1,1111222233334444L);
         t1.saveData(t1.getCurrType(), t1.getCurIban());
         t1.setCurrType(2);
