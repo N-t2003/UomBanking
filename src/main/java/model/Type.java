@@ -1,8 +1,8 @@
 package model;
 import java.util.ArrayList;
-    //δεν λειτουργει το exception, θα το φτιάξω
+
     /*  εφαρμογή στην main
-        
+    
         Type t1=new Type(1,1111222233334444L);
         t1.saveData(t1.getCurrType(), t1.getCurIban());
         t1.setCurrType(2);
@@ -34,14 +34,14 @@ public class Type {
         this.mainArray = mainArray;
     }
 
-    public long checkIban(long curIban){
-        try{
-            if(countDigit(curIban)==16)
+    public long checkIban(long curIban) throws Exception{
+        
+        if(countDigit(curIban)==16)
                 return curIban;
-        } catch (Exception e){
-            System.out.println("Wrong IBAN\n"+"Please try again!");
+        else {
+                throw new Exception("Wrong IBAN\nPlease try again!");
         }
-        return 0;
+        
         
     }
 
@@ -57,8 +57,13 @@ public class Type {
     public ArrayList<ArrayList<String>> saveData(int curType,long curIban){
         ArrayList<String> type = new ArrayList<>();
         ArrayList<String> iban = new ArrayList<>();
-        iban.add(Long.toString(checkIban(curIban))); //elegxo to iban, efoson einai sosto to apothikevo sto string list 
-        type.add(Integer.toString(curType));
+        try{
+            iban.add(Long.toString(checkIban(curIban))); //elegxo to iban, efoson einai sosto to apothikevo sto string list 
+            type.add(Integer.toString(curType));
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+            return mainArray;
+        }
         
         mainArray.add(iban);
         mainArray.add(type);
