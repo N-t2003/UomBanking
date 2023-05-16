@@ -12,6 +12,9 @@ public class Transfer extends Transaction{
     @Column(name = "IBAN", nullable = false, length = 50)
     private String IBAN;
 
+    public Transfer() {
+    }
+
 
 
     public Transfer(String ID, String date, double amount,String clientusername, String description, String IBAN) {
