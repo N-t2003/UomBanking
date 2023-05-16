@@ -6,12 +6,6 @@ public class MainTest {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-<<<<<<< HEAD
-
-                new CreateNewCardFrame();
-
-
-               new PreviewTransferFrame();
 
 //                try {
 //                    new MainFrame();
@@ -24,9 +18,6 @@ public class MainTest {
 //                } catch (IllegalAccessException e) {
 //                    throw new RuntimeException(e);
 //                }
-=======
-                new PreviewTransferFrame();
->>>>>>> 6d9494a33348e15da5e870cdebcaeed37487a869
             }
         });
     }
