@@ -19,7 +19,6 @@ import java.sql.SQLException;
 @Table(name = "Client")
 public class Client {
 
-
     @Column(name = "FirstName", nullable = false, length = 50)
     private String firstName;
 
@@ -41,6 +40,9 @@ public class Client {
 
     @Column(name = "Password", nullable = false, length = 50)
     private String password;
+
+    public Client() {
+    }
 
 
     public Client(String firstName, String lastName, String phoneNumber, String email,
@@ -101,6 +103,11 @@ public class Client {
 
     //Getters and Setters
 
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getFirstName() {
        return firstName;
     }
@@ -129,7 +136,29 @@ public class Client {
         return phoneNumber;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 //  soon
 
     public void printInfo(){

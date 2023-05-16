@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Random;
 import java.util.ArrayList;
 @Entity
-@Table(name = "Account")
+@Table(name = "ACCOUNT")
 public class Account {
 
     @Column(name = "balance", nullable = false, length = 50)
@@ -26,6 +26,9 @@ public class Account {
     private ArrayList<Transaction> tList = new ArrayList<>(); //λίστα που περιέχει transactions
     @Transient
     private ArrayList<String> lList = new ArrayList<String>(); //λίστα που περιέχει Loans
+
+    public Account() {
+    }
 
     public Account(double balance, String IBAN, String ID, String client) {
         this.balance = balance;
@@ -94,6 +97,50 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getIBAN() {
+        return IBAN;
+    }
+
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public ArrayList<Transaction> gettList() {
+        return tList;
+    }
+
+    public void settList(ArrayList<Transaction> tList) {
+        this.tList = tList;
+    }
+
+    public ArrayList<String> getlList() {
+        return lList;
+    }
+
+    public void setlList(ArrayList<String> lList) {
+        this.lList = lList;
     }
 }
 

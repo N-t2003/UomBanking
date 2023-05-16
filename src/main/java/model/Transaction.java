@@ -7,7 +7,7 @@ import java.util.Random;
 
 @Entity
 @Table(name = "TRANSACTIONS")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Transaction {
 
     @Id
