@@ -24,14 +24,11 @@ public class AppAccount {
         Transaction tx = session.beginTransaction();
 
 //      Creating a new user class
-//        User user2 = new User();
-//        User user1 = new User();
-//        Withdraw withdraw = new Withdraw("", "22", 22, "22");
-//        User user2 = new User();
+//        Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
 //        User user1 = new User();
         Account acc1 = new Account(100.2,"","","Astakos");
-        Client cl1 = new Client("1", "1", "1", "1",
-                "1", "232", "1");
+//        Client cl1 = new Client("1", "1", "1", "1",
+//                "1", "232", "1");
 
 //      Fetching a user from the database
 //        user1 = (User) session.get(User.class, 23445);
@@ -42,17 +39,10 @@ public class AppAccount {
 
 //      Saving the user
         session.save(acc1);
-        session.save(cl1);
+//        session.save(withdraw);
+//        session.save(cl1);
         session.getTransaction().commit();
         session.close();
-//
-//        session = sessionFactory.openSession();
-//        session.beginTransaction();
-//
-//        session.save(cl1);
-//
-//        session.getTransaction().commit();
-//        session.close();
 
     }
 }

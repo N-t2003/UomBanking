@@ -9,8 +9,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "WITHDRAW")
 @PrimaryKeyJoinColumn(name = "ID")
+@DiscriminatorColumn(name = "withdraw", discriminatorType = DiscriminatorType.STRING)
 public class Withdraw extends Transaction{
 
+
+    public Withdraw() {
+    }
 
 
     public Withdraw(String ID, String date, double amount,String clientusername, String description) {

@@ -6,8 +6,9 @@ import java.util.Random;
 
 
 @Entity
-@Table(name = "Transactions")
+@Table(name = "TRANSACTIONS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "transaction_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Transaction {
 
     @Id
