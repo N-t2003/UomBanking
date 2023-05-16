@@ -32,4 +32,29 @@
 
     </class>
 
+
+
+<!--    <class name="Transaction" table="TRANSACTIONS" abstract="true">-->
+
+<!--        <id name="ID" column="ID">-->
+<!--            <generator class="assigned"/>-->
+<!--        </id>-->
+
+<!--        <property name="date" column="date"/>-->
+<!--        <property name="amount" column="amount"/>-->
+<!--        <property name="description" column="description"/>-->
+<!--        <property name="clientusername" column="ClientUsername"/>-->
+
+<!--        &lt;!&ndash; Other common properties &ndash;&gt;-->
+
+<!--&lt;!&ndash;        <discriminator column="transaction_type" type="String"/>&ndash;&gt;-->
+
+<!--        <subclass name="Withdraw" discriminator-value="Withdraw">-->
+<!--            &lt;!&ndash; Additional properties and mappings specific to Withdraw &ndash;&gt;-->
+<!--        </subclass>-->
+
+<!--        &lt;!&ndash; Other subclasses &ndash;&gt;-->
+
+<!--    </class>-->
+
 </hibernate-mapping>
