@@ -1,22 +1,40 @@
 
 package model;
 
+import javax.persistence.*;
 import java.util.Random;
 import java.util.ArrayList;
-public abstract class Account {
+@Entity
+@Table(name = "Account")
+public class Account {
 
+    @Column(name = "balance", nullable = false, length = 50)
     private double balance;
-    private String ID;
-    private int IBAN;
-    private Client client;
-    private ArrayList<Transaction> tList = new ArrayList<>(); //λίστα που περιέχει transactions
-    private ArrayList<Loan> lList = new ArrayList<>(); //λίστα που περιέχει Loans
 
-    public Account(double balance, int IBAN, int ID, Client client) {
+    @Id
+    @Column(name = "ID", nullable = false, length = 8)
+    private String ID;
+
+    @Column(name = "IBAN", nullable = false, length = 27)
+    private String IBAN;
+
+    @Column(name = "clientUsername", nullable = false, length = 27)
+    private String client;
+
+
+    @Transient
+    private ArrayList<Transaction> tList = new ArrayList<>(); //λίστα που περιέχει transactions
+    @Transient
+    private ArrayList<String> lList = new ArrayList<String>(); //λίστα που περιέχει Loans
+
+    public Account(double balance, String IBAN, String ID, String client) {
         this.balance = balance;
-        this.IBAN = IBAN;
+        this.IBAN = genIBAN();
         this.ID = genID();
         this.client = client;
+
+
+        System.out.println(this.IBAN);
     }
 
     public void tList(Transaction trans){
@@ -24,7 +42,7 @@ public abstract class Account {
         tList.add(trans); //προσθήκη ενός transaction στην λίστα
     }
 
-    public void tList(Loan loan){
+    public void tList(String loan){
 
         lList.add(loan); //προσθήκη ενός loan στην λίστα
     }
@@ -41,6 +59,27 @@ public abstract class Account {
         }
         return builder.toString();
 
+
+    }
+
+    public String genIBAN(){
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        int length = 27;
+
+        Random random = new Random();
+        StringBuilder builder = new StringBuilder(length);
+
+        // Append "GR" to the beginning of the string
+        builder.append("GR00");
+
+        for (int i = 0; i < length - 4; i++) {
+            int index = random.nextInt(characters.length());
+            char randomChar = characters.charAt(index);
+            builder.append(randomChar);
+        }
+
+        return builder.toString();
+
     }
 
 
@@ -48,10 +87,13 @@ public abstract class Account {
         return tList;
     }
 
-    public ArrayList<Loan> printLList() {
+    public ArrayList<String> printLList() {
         return lList;
     }
 
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }
 

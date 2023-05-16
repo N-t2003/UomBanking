@@ -1,7 +1,5 @@
 package gui;
 
-import model.Client;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,7 +19,7 @@ public class Template extends JFrame {
         logo = new JLabel("Logo");
         name = new JLabel("UOMSystemX");
         accountIcon = new JLabel("Account");
-        clientName = new JLabel("Name");
+        clientName = new JLabel();
 
 //      Setting up JLabel logo
         logo.setBounds(0, 0, 150, 30);
@@ -40,8 +38,10 @@ public class Template extends JFrame {
         name.setFont(new Font("Courier", Font.PLAIN, 25));
 
 //      Setting up JLabel clientName
-        clientName.setBounds(1135, 65, 150, 30);
+        clientName.setBounds(1115, 65, 150, 30);
         clientName.setFont(new Font("Courier", Font.PLAIN, 15));
+
+
 
 //      Adding components to the frame
         add(logo);
@@ -56,5 +56,7 @@ public class Template extends JFrame {
         setSize(1200, 800);
         getContentPane().setBackground(Color.LIGHT_GRAY);
         validate(); //validates the images
+
+
     }
 }
