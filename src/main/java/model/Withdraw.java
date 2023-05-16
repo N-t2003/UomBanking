@@ -7,11 +7,10 @@ import javax.persistence.Table;
 @Table(name = "WITHDRAW")
 public class Withdraw extends Transaction{
 
-    public Withdraw() {
-    }
+ 
 
-    public Withdraw(String ID, String date, double amount, String description) {
-        super(ID, date, amount, description);
+    public Withdraw(String ID, String date, double amount,String clientusername, String description) {
+        super(ID, date, amount,clientusername, description);
     }
 
 

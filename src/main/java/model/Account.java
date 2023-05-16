@@ -1,6 +1,8 @@
 
 package model;
 
+import org.example.AppAccount;
+
 import javax.persistence.*;
 import java.util.Random;
 import java.util.ArrayList;
@@ -27,13 +29,15 @@ public class Account {
     @Transient
     private ArrayList<String> lList = new ArrayList<String>(); //λίστα που περιέχει Loans
 
+    public Account() {
+
+    }
+
     public Account(double balance, String IBAN, String ID, String client) {
         this.balance = balance;
         this.IBAN = genIBAN();
         this.ID = genID();
         this.client = client;
-
-
         System.out.println(this.IBAN);
     }
 
@@ -63,7 +67,7 @@ public class Account {
     }
 
     public String genIBAN(){
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String characters = "0123456789";
         int length = 27;
 
         Random random = new Random();
@@ -92,8 +96,42 @@ public class Account {
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "balance=" + balance +
+                ", ID='" + ID + '\'' +
+                ", IBAN='" + IBAN + '\'' +
+                ", client='" + client + '\'' +
+                '}';
+    }
+
+
+    //get and set\\
+
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getIBAN() {
+        return IBAN;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+
+
 }
 
