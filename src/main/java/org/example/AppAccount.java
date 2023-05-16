@@ -4,55 +4,55 @@ package org.example;
  * By the software team of UOMSystemX
  *
  */
+import model.Withdraw;
 import org.hibernate.*;
 import model.Account;
+import model.Client;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 public class AppAccount {
     public static void main(String[] args) {
 //      Setting up the transaction between the app and the database
-        Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Account.class);
+        AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession(); //using the session to fetch data from the database(line 31)
 
         Transaction tx = session.beginTransaction();
 
-
-
-      //  Account acc1 = new Account(100.2,"","","sleeeeeet");
-
+//      Creating a new user class
+//        User user2 = new User();
+//        User user1 = new User();
+//        Withdraw withdraw = new Withdraw("", "22", 22, "22");
+//        User user2 = new User();
+//        User user1 = new User();
+        Account acc1 = new Account(100.2,"","","Astakos");
+        Client cl1 = new Client("1", "1", "1", "1",
+                "1", "2222", "1");
 
 //      Fetching a user from the database
-//          Account acc2 = (Account) session.get(Account.class, "*zk4E+yJ");
-         // System.out.println(session.get(Account.class, "*zk4E+yJ"));
+//        user1 = (User) session.get(User.class, 23445);
+//        System.out.println(user1);
 
 //      Adding columns to the database
         //user2.setEmail("dimsparagis@icloud.com");
 
 //      Saving the user
-
-        Account account = (Account) session.get(Account.class, "*zk4E+yJ");
-
-
-        if (account != null) {
-           // System.out.println("Account Number: " + account.getAccountNumber());
-            System.out.println("Account Balance: " + account.getBalance() + account.getIBAN());
-            // Print other account properties as needed
-        } else {
-            System.out.println("Account not found.");
-        }
-
-       // session.save(acc2);
+        session.save(acc1);
+        session.save(cl1);
         session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
-    }
-
-    public static void setuser(){
-
+//
+//        session = sessionFactory.openSession();
+//        session.beginTransaction();
+//
+//        session.save(cl1);
+//
+//        session.getTransaction().commit();
+//        session.close();
 
     }
 }

@@ -7,11 +7,6 @@ public class MainTest {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
 
-                new CreateNewCardFrame();
-
-
-               new PreviewTransferFrame();
-
 //                try {
 //                    new MainFrame();
 //                } catch (UnsupportedLookAndFeelException e) {
@@ -23,8 +18,6 @@ public class MainTest {
 //                } catch (IllegalAccessException e) {
 //                    throw new RuntimeException(e);
 //                }
-                new PreviewTransferFrame();
-
             }
         });
     }

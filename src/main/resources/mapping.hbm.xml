@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-    <class name="model.Account" table="account">
-        <id name="ID" column="">
+
+<hibernate-mapping package="model">
+
+    <class name="Account" table="ACCOUNT">
+
+        <id name="ID" column="ID" type="string">
             <generator class="assigned"/>
         </id>
+
         <property name="balance" column="balance" type="double"/>
-        <!-- Add more properties and their respective columns as needed -->
+        <property name="IBAN" column="IBAN" type="string"/>
+        <property name="client" column="clientUsername" type="string"/>
+
     </class>
+
+    <class name="Client" table="Client">
+
+        <id name="username" column="Username" type="string">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="firstName" column="FirstName" type="string"/>
+        <property name="lastName" column="LastName" type="string"/>
+        <property name="phoneNumber" column="PhoneNumber" type="string"/>
+        <property name="email" column="Email" type="string"/>
+        <property name="address" column="Address" type="string"/>
+        <property name="password" column="Password" type="string"/>
+
+    </class>
+
 </hibernate-mapping>
