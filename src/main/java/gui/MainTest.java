@@ -24,8 +24,6 @@ public class MainTest {
 //                } catch (IllegalAccessException e) {
 //                    throw new RuntimeException(e);
 //                }
-
-adda
             }
         });
     }

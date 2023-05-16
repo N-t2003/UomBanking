@@ -1,4 +1,6 @@
 package model;
+import jakarta.persistence.Entity;
+
 import java.util.ArrayList;
 
     /*  εφαρμογή στην main
@@ -10,8 +12,6 @@ import java.util.ArrayList;
         t1.saveData(t1.getCurrType(), t1.getCurIban());
         System.out.println(t1.toString());
      */
-
-
 public class Type {
     private int currType; //curerent type
     private long curIban; //current iban

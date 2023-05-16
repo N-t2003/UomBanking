@@ -28,14 +28,11 @@ public class Loan {
         setLoanAmount(newLoanAmount);
         doses--;
         setDoses(doses);
-        
-        
     }
 
     public double calculateNewBalanace(double balance,double payableDose){
             balance=balance-payableDose;  //ipologizo to kainourgio balance
             return balance;
-
     }
 
 

@@ -1,13 +1,30 @@
 package model;
 
+import jakarta.persistence.*;
+
 import java.util.Random;
 
+
+@Entity
+@Table(name = "TRANSACTIONS")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Transaction {
 
+    @Id
+    @Column(name = "ID", nullable = false, length = 50)
     private String ID;
+
+    @Column(name = "DATE", nullable = false, length = 50)
     private String date;
+
+    @Column(name = "AMOUNT", nullable = false, length = 50)
     private double amount;
+
+    @Column(name = "DESCRIPTION", nullable = false, length = 50)
     private String description;
+
+    public Transaction() {
+    }
 
     public Transaction(String ID, String date, double amount, String description) {
         this.ID = genID();
@@ -15,7 +32,6 @@ public abstract class Transaction {
         this.amount = amount;
         this.description = description;
     }
-
 
 
     public double calculateNewBalance(double balance, double amount){

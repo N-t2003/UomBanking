@@ -7,8 +7,8 @@ public class Deposit extends Transaction{
     }
 
     public void printTransaction(){
-        System.out.println("ID: "+getID()+"\n"+"Date: "+getDate()+"\n"+"Amount: "+getAmount()+"\n"+
-        "Description: "+getDescription());
+//        System.out.println("ID: "+getID()+"\n"+"Date: "+getDate()+"\n"+"Amount: "+getAmount()+"\n"+
+//        "Description: "+getDescription());
     }
 
 
