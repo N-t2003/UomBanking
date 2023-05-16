@@ -31,7 +31,7 @@ public class AppAccount {
 //        User user1 = new User();
         Account acc1 = new Account(100.2,"","","Astakos");
         Client cl1 = new Client("1", "1", "1", "1",
-                "1", "2222", "1");
+                "1", "63464", "1");
 
 //      Fetching a user from the database
 //        user1 = (User) session.get(User.class, 23445);

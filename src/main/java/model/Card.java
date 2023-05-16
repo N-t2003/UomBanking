@@ -1,13 +1,28 @@
 package model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
 // ΔΕΝ ΕΧΕΙ ΥΛΟΠΟΙΗΘΕΙ Ο ΤΥΠΟΣ ΤΗΣ ΚΑΡΤΑΣ
+@Entity
+@Table(name = "Card")
 public class Card{
+
+    @Id
+    @Column(name = "cardNumber", nullable = false, length = 20)
     private long cardNumber;
+
+    @Column(name = "dateExpire", nullable = false, length = 10)
     private String dateExp;
+
+    @Column(name = "CVV", nullable = false, length = 3)
     private long cvv;
+
+    @Column(name = "Type", nullable = false, length = 15)
     private int type;
 
     

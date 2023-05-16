@@ -1,11 +1,13 @@
 
 package model;
 
+import org.example.AppAccount;
+
 import javax.persistence.*;
 import java.util.Random;
 import java.util.ArrayList;
 @Entity
-@Table(name = "ACCOUNT")
+@Table(name = "Account")
 public class Account {
 
     @Column(name = "balance", nullable = false, length = 50)
@@ -28,6 +30,7 @@ public class Account {
     private ArrayList<String> lList = new ArrayList<String>(); //λίστα που περιέχει Loans
 
     public Account() {
+
     }
 
     public Account(double balance, String IBAN, String ID, String client) {
@@ -35,8 +38,6 @@ public class Account {
         this.IBAN = genIBAN();
         this.ID = genID();
         this.client = client;
-
-
         System.out.println(this.IBAN);
     }
 
@@ -66,7 +67,7 @@ public class Account {
     }
 
     public String genIBAN(){
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String characters = "0123456789";
         int length = 27;
 
         Random random = new Random();
@@ -95,6 +96,21 @@ public class Account {
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "balance=" + balance +
+                ", ID='" + ID + '\'' +
+                ", IBAN='" + IBAN + '\'' +
+                ", client='" + client + '\'' +
+                '}';
+    }
+
+
+    //get and set\\
+
     public void setBalance(double balance) {
         this.balance = balance;
     }
@@ -107,40 +123,15 @@ public class Account {
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
     public String getIBAN() {
         return IBAN;
-    }
-
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
     }
 
     public String getClient() {
         return client;
     }
 
-    public void setClient(String client) {
-        this.client = client;
-    }
 
-    public ArrayList<Transaction> gettList() {
-        return tList;
-    }
 
-    public void settList(ArrayList<Transaction> tList) {
-        this.tList = tList;
-    }
-
-    public ArrayList<String> getlList() {
-        return lList;
-    }
-
-    public void setlList(ArrayList<String> lList) {
-        this.lList = lList;
-    }
 }
 

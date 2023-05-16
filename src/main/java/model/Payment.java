@@ -6,8 +6,8 @@ public class Payment extends Transaction{
 
     ArrayList<Type> typeList= new ArrayList<>();
 
-    public Payment(String ID, String date, double amount, String description) {
-        super(ID, date, amount, description);
+    public Payment(String ID, String date, double amount,String clientusername, String description) {
+        super(ID, date, amount,clientusername, description);
     }
         
     public void printTransaction(){
