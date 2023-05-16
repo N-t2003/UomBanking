@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Type {
     private int currType; //curerent type
-    private long curIban; //current iban
+    private String curIban; //current iban
     private ArrayList<ArrayList<String>> mainArray = new ArrayList<>(); 
 
     
@@ -22,13 +22,13 @@ public class Type {
     public Type(){
 
     }
-    public Type(int currType, long curIban) {
+    public Type(int currType, String curIban) {
         this.currType = currType;
         this.curIban = curIban;
     }
     
 
-    public Type(int currType, long curIban,ArrayList<ArrayList<String>> mainArray) {
+    public Type(int currType, String curIban,ArrayList<ArrayList<String>> mainArray) {
         this.currType = currType;
         this.curIban = curIban;
         this.mainArray = mainArray;
@@ -84,11 +84,11 @@ public class Type {
         this.currType = currType;
     }
 
-    public long getCurIban() {
+    public String getCurIban() {
         return curIban;
     }
 
-    public void setCurIban(long curIban) {
+    public void setCurIban(String curIban) {
         this.curIban = curIban;
     }
 
