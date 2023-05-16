@@ -131,7 +131,24 @@ public class Account {
         return client;
     }
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
 
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public void settList(ArrayList<Transaction> tList) {
+        this.tList = tList;
+    }
+
+    public void setlList(ArrayList<String> lList) {
+        this.lList = lList;
+    }
 }
 

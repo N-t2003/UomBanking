@@ -7,7 +7,7 @@ import java.util.Random;
 
 @Entity
 @Table(name = "Transactions")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Transaction {
 
     @Id
@@ -24,8 +24,11 @@ public abstract class Transaction {
     private String description;
 
     @Column(name = "ClientUsername", nullable = false, length = 50)
-    private String clientusername ;                                     // χρησιμοποιείται για να ξέρουμε ποιανού το transaction είναι
+    private String clientusername;                                     // χρησιμοποιείται για να ξέρουμε ποιανού το transaction είναι
 
+    public Transaction() {
+
+    }
 
 
     public Transaction(String ID, String date, double amount, String description, String clientusername) {
