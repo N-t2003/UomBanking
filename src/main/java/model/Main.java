@@ -125,11 +125,11 @@ public class Main {
 }
 */
 
-        // create client
-        Client c1 = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
-                "akala den menw", "malaka", "tsapou");
-
-        Client c2 = new Client("Giannis", "Sfyrakis", "6097846767", "ppp@.cokm",
-                "Papafi", "fariggas", "tsapou");
+//        // create client
+//        Client c1 = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
+//                "akala den menw", "malaka", "tsapou");
+//
+//        Client c2 = new Client("Giannis", "Sfyrakis", "6097846767", "ppp@.cokm",
+//                "Papafi", "fariggas", "tsapou");
 
     }  }
