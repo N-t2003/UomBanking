@@ -11,7 +11,7 @@ public class Payment extends Transaction{
     }
         
     public void printTransaction(){
-            System.out.println();
+            System.out.println("Test");
     }
     
 
