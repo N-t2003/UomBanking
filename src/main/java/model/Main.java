@@ -3,6 +3,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import files.CreatePDFS;
 import org.example.User;
 
 import java.io.FileOutputStream;
@@ -17,44 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-       /* try {
-            // Create aaa new Document object
-            Document document = new Document();
-            // Set the output file name and location
-            PdfWriter.getInstance(document, new FileOutputStream("C:/Users/giann/Desktop/OSparEinaiArxidi.pdf"));
-            // Open the document
-            document.open();
-            // Add some content
-            document.add(new Paragraph("Hello, world!"));
-            document.add(new Paragraph("This is some text"));
-            Image image = Image.getInstance("C:/Users/giann/Downloads/ΑΣΚΗΣΕΙΣ ΓΙΑΝΝΗ/athens_1.png");
-            image.scaleToFit(200, Float.MAX_VALUE);
-            document.add(image);
-            PdfPTable table = new PdfPTable(3); // 3 columns
-            table.addCell("Header 1");
-            table.addCell("Header 2");
-            table.addCell("Header 3");
-            table.addCell("1");
-            table.addCell("2");
-            table.addCell("3");
-            table.addCell("4");
-            table.addCell("5");
-            table.addCell("6");
-            document.add(table);
-            Font font = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, BaseColor.RED);
-            document.add(new Paragraph("This is some bold red text", font));
-
-
-
-            // Close the document
-            document.close();
-            System.out.println("PDF created successfully!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        */
-
+        CreatePDFS pdf = new CreatePDFS(1);
 
 
 
