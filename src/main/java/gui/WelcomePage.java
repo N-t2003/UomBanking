@@ -17,7 +17,7 @@ public class WelcomePage extends JFrame {
     public JFrame welcomePage;
 
      public WelcomePage(){
-          welcomePage = new TemplateNotLoggedIn();
+         welcomePage = new TemplateNotLoggedIn();
 
 //       Setting layout manager to null for absolute positioning
          welcomePage.setLayout(null);
