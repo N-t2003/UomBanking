@@ -72,10 +72,8 @@ public class PaymentFrame extends JFrame {
         payment.add(submitButton);
         payment.add(returnToMainPageButton);
 
-        this.setContentPane(payment);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
 
     }
 
