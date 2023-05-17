@@ -44,17 +44,7 @@ public class CreateAccount extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 createAccount.dispose();
-                try {
-                    new MainFrame();
-                } catch (UnsupportedLookAndFeelException ex) {
-                    throw new RuntimeException(ex);
-                } catch (ClassNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InstantiationException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IllegalAccessException ex) {
-                    throw new RuntimeException(ex);
-                }
+                new MainFrame();
             }
         });
 
@@ -68,17 +58,7 @@ public class CreateAccount extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 createAccount.dispose();
-                try {
-                    new WelcomePage();
-                } catch (UnsupportedLookAndFeelException ex) {
-                    throw new RuntimeException(ex);
-                } catch (ClassNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InstantiationException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IllegalAccessException ex) {
-                    throw new RuntimeException(ex);
-                }
+                new WelcomePage();
             }
         });
 
@@ -166,17 +146,7 @@ class CreateAccountPanel extends JPanel{
         signInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    new MainFrame();
-                } catch (UnsupportedLookAndFeelException ex) {
-                    throw new RuntimeException(ex);
-                } catch (ClassNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InstantiationException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IllegalAccessException ex) {
-                    throw new RuntimeException(ex);
-                }
+                new MainFrame();
             }
         });
 
