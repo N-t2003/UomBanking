@@ -4,6 +4,8 @@ import model.Transaction;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TransactionHistoryFrame extends JFrame {
@@ -11,6 +13,7 @@ public class TransactionHistoryFrame extends JFrame {
     private JLabel header;
     private JLabel subheader;
     private JFrame frame = new Template();
+    private JButton showTransactionButton= new JButton("Show Transaction History");
 
 
 
@@ -19,8 +22,9 @@ public class TransactionHistoryFrame extends JFrame {
         header = Utils.setHeader("Transaction history");
         subheader = new JLabel("See what you spend in detail");
 
-        Transaction[][] trans = new Transaction[3][3];
-        String[] column={"Transaction","Amount","Date"};
+        Transaction[][] trans = new Transaction[5][5];
+        String[] column={"Transaction","Amount","Date","ID","DESCRIPTION"};
+
 
 
         JTable jt = new JTable(trans,column);
@@ -28,19 +32,27 @@ public class TransactionHistoryFrame extends JFrame {
         jt.setEnabled(false);
         sc.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         jt.setForeground(Color.BLACK);
-        frame.add(sc);
+
+        showTransactionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
 
 
 
         header.setBounds(400,100,1000,100);
         subheader.setBounds(500,140,1500,100);
         sc.setBounds(320,250,500,100);
+        showTransactionButton.setBounds(470,400,200,20);
 
 
 
         frame.add(header);
         frame.add(subheader);
         frame.add(sc);
+        frame.add(showTransactionButton);
 
 
         frame.setVisible(true);

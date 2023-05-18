@@ -1,47 +1,38 @@
 package gui;
 
 import model.Card;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 import static java.awt.Color.BLACK;
+import static java.awt.Color.getColor;
 
 public class CreateNewCardFrame extends JFrame {
 
     private JFrame fr = new Template();
     private JLabel header;
-
-    private JLabel nameLabel;
+    private JLabel nameLabel; //θα φιλοξενήσει το όνομα
     private JTextField nameText = new JTextField();
-
     private JLabel typeLabel;
-    private JComboBox type = new JComboBox();
-
-    private JLabel colorLabel;
+    private JComboBox type = new JComboBox(); //για την επιλογη του τυπυ της καρτας
+    private JLabel colorLabel; //θα φιλοξενήσει το χρώμα
     private JPanel P = new JPanel();
-
-    private JButton colorButton;
-
-    private JLabel pinLabel;
+    private JButton colorButton; //κουμπί για αλλαγή χρώματος
+    private JLabel pinLabel; //θα φιλοξενήσει το πιν
     private JPasswordField pinField = new JPasswordField(4);
-
     private JLabel conPinLabel;
     private JPasswordField conPinField = new JPasswordField(4);
-
-    private JButton createCardButton = new JButton("Create card");
-    private JButton returnToMainPageButton = new JButton("Return to the main page");
-
-    private JLabel message;
-    public JColorChooser coChooser;
-
+    private JButton createCardButton = new JButton("Create card");//κουμπί για δημιουργία κάρτας
+    private JButton returnToMainPageButton = new JButton("Return to the main page");//κουμπί για επιστροφή στο αρχικό μενού
+    private JLabel message; //υπενθύμιση για πιν
+    private JPanel chipPanel = new JPanel(); //υποθετικό τσιπ κάρτας
+    public JColorChooser coChooser; //για επιλογή χρώματος
 
     String pin1;
     String pin2;
     Card cardDe;
+    Color color;
 
     public CreateNewCardFrame() {
         this.setLayout(null);
@@ -52,19 +43,23 @@ public class CreateNewCardFrame extends JFrame {
         header = Utils.setHeader("Enter card details");
         nameLabel = new JLabel("Name in the card");
         typeLabel = new JLabel("Type");
+
         final JComboBox<String> cb = new JComboBox<String>(choices);
+        coChooser = new JColorChooser();
+
         colorLabel = new JLabel("Color");
+
         pinLabel = new JLabel("Pin");
         conPinLabel = new JLabel("Confirm Pin");
 
         colorButton = new JButton("Choose Color");
-        coChooser = new JColorChooser();
+
         colorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if (actionEvent.getSource() == colorButton) {
+                    color = coChooser.showDialog(null, "", BLACK);
 
-                    Color color = coChooser.showDialog(null, "", BLACK);
                 }
             }
         });
@@ -84,16 +79,20 @@ public class CreateNewCardFrame extends JFrame {
         returnToMainPageButton.setBounds(375, 550, 200, 20);
 
 
+//        if(cb.equals("")){
+//            JOptionPane.showMessageDialog(fr, "Please ensure compliance!",
+//                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
+//        }
+//
         createCardButton.addActionListener(new ActionListener() {
-
-
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 pin1 = String.valueOf(pinField.getPassword());
                 pin2 = String.valueOf(conPinField.getPassword());
 
                 if (!checkPin(pin1, pin2)) {
-                    System.out.println("Enter an acceptable pin");
+                    JOptionPane.showMessageDialog(fr, "Please insert an acceptable pin!",
+                            "Pin Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else
                 {
@@ -103,22 +102,24 @@ public class CreateNewCardFrame extends JFrame {
                     String cardExp = card.getDateExp();
                     String cardName  = nameText.getText();
                     String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText();
-                    //     Color cardColor = (Color) colorButton.getAction()
-                    Color cardColor =  coChooser.getSelectionModel().getSelectedColor();
-                    System.out.println(cardCVV +"\n"+cardNum+"\n"+cardExp);
-                    System.out.println(typedText);
 
-                    fr.dispose();
-                    new PreviewCardFrame(typedText,cardNum,cardExp,cardName,cardCVV,cardColor);
+                    if(cardName.equals("")){
+                            JOptionPane.showMessageDialog(fr, "Please insert a Name!",
+                                    "Name Error", JOptionPane.ERROR_MESSAGE);
+                    }
+
+
+                    else {
+
+                        fr.dispose();
+                        new PreviewCardFrame(typedText, cardNum, cardExp, cardName, cardCVV, color);
+                    }
 
 
                 }
 
             }
         });
-
-        setBackground(Color.LIGHT_GRAY);
-
 
         fr.add(header);
         fr.add(nameLabel);
@@ -145,8 +146,6 @@ public class CreateNewCardFrame extends JFrame {
 
     }
 
-
-
     public boolean checkPin(String pin1, String pin2) {
 
         int le1, le2;
@@ -155,7 +154,6 @@ public class CreateNewCardFrame extends JFrame {
 
         le1 = pin1.length();
         le2 = pin2.length();
-
 
         for (int i = 0; i < le1; i++) {
             if (!Character.isDigit(pin1.charAt(i))) {
@@ -183,8 +181,6 @@ public class CreateNewCardFrame extends JFrame {
         } else {
             return false;
         }
-
-
     }
 }
 
