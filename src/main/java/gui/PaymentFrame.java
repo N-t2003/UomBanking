@@ -17,8 +17,10 @@ public class PaymentFrame extends JFrame {
     private JButton submitButton;
     private JButton returnToMainPageButton;
     private String[] expenses = {"Groceries","Health","Transport"};
+    JFrame payment;
+    private String anAmount;
     public PaymentFrame(){
-        JFrame payment = new Template();
+        payment = new Template();
         JComboBox<String> cb = new JComboBox<String>(expenses);
 
         //Initializing elements
@@ -55,10 +57,14 @@ public class PaymentFrame extends JFrame {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //checkAmount();
+               anAmount=amountField.getText();
+               if(isCorrect(anAmount) && checkAmount(anAmount,0)){
+                   payment.dispose();
+                   new PreviewPaymentFrame();
+               }
+
             }
         });
-
 
         //Adding the elements
         payment.add(header);
@@ -77,9 +83,38 @@ public class PaymentFrame extends JFrame {
 
     }
 
-    public void checkAmount(double amount, double balance){
+    public boolean isCorrect(String amount){
+        boolean flag = true;
+        if(amount.isBlank()) {
+            JOptionPane.showMessageDialog(payment, "Please enter an amount!",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            flag=false;
+            return flag;
+        }
+        for(int i=0;i<anAmount.length();i++){
+            if(!Character.isDigit(anAmount.charAt(i))){
+                flag=false;
+                JOptionPane.showMessageDialog(payment, "Please enter an amount!",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+                break;
+            }
+        }
+        return flag;
+    }
 
+    public boolean checkAmount(String anAmount, double balance){
+        double amount = Double.parseDouble(anAmount);
+        boolean flag=true;
+        if(amount>balance)
+        {
+            JOptionPane.showMessageDialog(payment, "Please enter a smaller amount!",
+                    "Warning", JOptionPane.ERROR_MESSAGE);
+            flag=false;
+        }
+
+        return flag;
 
     }
+
 }
 
