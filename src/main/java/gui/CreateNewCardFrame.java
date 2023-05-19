@@ -17,7 +17,6 @@ public class CreateNewCardFrame extends JFrame {
     private JLabel typeLabel;
     private JComboBox type = new JComboBox(); //για την επιλογη του τυπυ της καρτας
     private JLabel colorLabel; //θα φιλοξενήσει το χρώμα
-    private JPanel P = new JPanel();
     private JButton colorButton; //κουμπί για αλλαγή χρώματος
     private JLabel pinLabel; //θα φιλοξενήσει το πιν
     private JPasswordField pinField = new JPasswordField(4);
@@ -28,6 +27,7 @@ public class CreateNewCardFrame extends JFrame {
     private JLabel message; //υπενθύμιση για πιν
     private JPanel chipPanel = new JPanel(); //υποθετικό τσιπ κάρτας
     public JColorChooser coChooser; //για επιλογή χρώματος
+    private JLabel line = new JLabel("__________________________________________________________________________________________________________________________");
 
     String pin1;
     String pin2;
@@ -40,7 +40,13 @@ public class CreateNewCardFrame extends JFrame {
         String[] choices = {"VISA", "MasterCard"};
         message = new JLabel("Enter 4 digits");
         message.setFont(new Font("Courier", Font.PLAIN, 10));
+
         header = Utils.setHeader("Enter card details");
+        header.setBounds(400,100,1000,100);
+
+        fr.add(line);
+        line.setBounds(180,140,900,100);
+
         nameLabel = new JLabel("Name in the card");
         typeLabel = new JLabel("Type");
 
@@ -64,26 +70,20 @@ public class CreateNewCardFrame extends JFrame {
             }
         });
 
-        nameLabel.setBounds(300, 200, 1000, 100);
-        nameText.setBounds(400, 240, 150, 20);
-        typeLabel.setBounds(370, 250, 1000, 100);
-        cb.setBounds(400, 290, 150, 20);
-        colorLabel.setBounds(370, 310, 1000, 100);
-        colorButton.setBounds(410, 350, 100, 20);
-        pinLabel.setBounds(375, 350, 1000, 100);
-        pinField.setBounds(400, 390, 150, 20);
-        message.setBounds(400, 405, 1000, 20);
-        conPinLabel.setBounds(327, 400, 1000, 100);
-        conPinField.setBounds(400, 440, 150, 20);
-        createCardButton.setBounds(420, 480, 100, 20);
-        returnToMainPageButton.setBounds(375, 550, 200, 20);
+        nameLabel.setBounds(380, 200, 1000, 100);
+        nameText.setBounds(480, 240, 150, 20);
+        typeLabel.setBounds(450, 250, 1000, 100);
+        cb.setBounds(480, 290, 150, 20);
+        colorLabel.setBounds(445, 310, 1000, 100);
+        colorButton.setBounds(480, 350, 100, 20);
+        pinLabel.setBounds(460, 350, 1000, 100);
+        pinField.setBounds(480, 390, 150, 20);
+        message.setBounds(480, 405, 1000, 20);
+        conPinLabel.setBounds(410, 400, 1000, 100);
+        conPinField.setBounds(480, 440, 150, 20);
+        createCardButton.setBounds(500, 480, 100, 20);
+        returnToMainPageButton.setBounds(450, 550, 200, 20);
 
-
-//        if(cb.equals("")){
-//            JOptionPane.showMessageDialog(fr, "Please ensure compliance!",
-//                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
-//        }
-//
         createCardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -104,12 +104,13 @@ public class CreateNewCardFrame extends JFrame {
                     String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText();
 
                     if(cardName.equals("")){
-                            JOptionPane.showMessageDialog(fr, "Please insert a Name!",
-                                    "Name Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(fr, "Please insert a Name!",
+                                "Name Error", JOptionPane.ERROR_MESSAGE);
                     }
 
 
                     else {
+
 
                         fr.dispose();
                         new PreviewCardFrame(typedText, cardNum, cardExp, cardName, cardCVV, color);
@@ -136,10 +137,6 @@ public class CreateNewCardFrame extends JFrame {
         fr.add(createCardButton);
         fr.add(returnToMainPageButton);
 
-        P.setBorder(BorderFactory.createLineBorder(BLACK));
-        P.setBounds(240, 200, 700, 1);
-
-        fr.add(P);
         fr.setVisible(true);
         fr.setDefaultCloseOperation(EXIT_ON_CLOSE);
         fr.getContentPane().setBackground(Color.LIGHT_GRAY);
@@ -183,16 +180,3 @@ public class CreateNewCardFrame extends JFrame {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

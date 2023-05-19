@@ -1,5 +1,6 @@
-
 package gui;
+
+import model.Card;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +8,6 @@ import java.awt.*;
 public class PreviewCardFrame extends JFrame {
 
     private JLabel header;
-    private JPanel panel = new JPanel();
     private JFrame prFrame = new Template();
     private JPanel PrePanel = new JPanel();
     private JPanel frontCardPanel = new JPanel();
@@ -33,7 +33,9 @@ public class PreviewCardFrame extends JFrame {
 
 
 
-    public PreviewCardFrame(String type, long cardNum, String cardExp, String cardName, long cardCVV, Color cardColor){
+    public PreviewCardFrame(String type, long cardNum, String cardExp, String cardName, long cardCVV, Color cardColor) {
+
+
         StringBuilder cardNumber;
         prFrame.getContentPane();
         frontCardPanel.setLayout(null);
@@ -43,13 +45,20 @@ public class PreviewCardFrame extends JFrame {
         expCard.setText(cardExp);
         nameLabel.setText(cardName);
 
-        cardNumberBuilder= new StringBuilder(String.valueOf(cardNum));
-        for(int i=4; i<cardNumberBuilder.length();i+=6){
-            cardNumberBuilder.insert(i,"  ");
+        cardNumberBuilder = new StringBuilder(String.valueOf(cardNum));
+        for (int i = 4; i < cardNumberBuilder.length(); i += 6) {
+            cardNumberBuilder.insert(i, "  ");
         }
 
         carNum = new JLabel(cardNumberBuilder.toString());
 
+        Card aCard = new Card(0, "", 0, 0);
+        this.buildCard(type,cardNum,cardExp,cardName,cardCVV,cardColor);
+
+
+    }
+
+    public void buildCard(String type, long cardNum, String cardExp, String cardName, long cardCVV, Color cardColor){
         expLabel = new JLabel("VALID THRU");
         backLabel = new JLabel("UoMBanking");
 
@@ -59,90 +68,88 @@ public class PreviewCardFrame extends JFrame {
 
         header = Utils.setHeader("Your card was created successfully!");
         header.setBounds(300, 100, 1000, 100);
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        PrePanel.setBounds(220,230,850,230);
+        PrePanel.setBounds(220, 230, 850, 230);
         PrePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        frontCardPanel.setPreferredSize(new Dimension(400,200));
-        backCardPanel.setPreferredSize(new Dimension(400,200));
-        frontCardPanel.setBounds(200,350,1000,150);
-        backCardPanel.setBounds(300,300,1000,150);
+        frontCardPanel.setPreferredSize(new Dimension(400, 200));
+        backCardPanel.setPreferredSize(new Dimension(400, 200));
+        frontCardPanel.setBounds(200, 350, 1000, 150);
+        backCardPanel.setBounds(300, 300, 1000, 150);
         frontCardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         backCardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         frontCardPanel.add(nameLabel);
         Dimension sizeName = frontCardPanel.getPreferredSize();
-        nameLabel.setBounds(30,70, sizeName.width,sizeName.height);
+        nameLabel.setBounds(30, 70, sizeName.width, sizeName.height);
 
         frontCardPanel.add(carNum);
-        carNum.setBounds(50,50,500,100);
-       // Dimension cardNuSize = frontCardPanel.getPreferredSize();
-       // carNum.setBounds(50,5,cardNuSize.width,cardNuSize.height);
+        carNum.setBounds(50, 50, 500, 100);
+        // Dimension cardNuSize = frontCardPanel.getPreferredSize();
+        // carNum.setBounds(50,5,cardNuSize.width,cardNuSize.height);
         carNum.setFont(new Font("Courier", Font.PLAIN, 25));
 
 
-
         frontCardPanel.add(frontLogo);
-        frontLogo.setBounds(10,5, 80, 40);
-        frontLogo.setIcon(Utils.setLabelIcon("src/main/java/images/UOM_LOGO_3.png",frontLogo));
+        frontLogo.setBounds(10, 5, 80, 40);
+        frontLogo.setIcon(Utils.setLabelIcon("src/main/java/images/UOM_LOGO_3.png", frontLogo));
 
         backCardPanel.add(backLogo);
-        backLogo.setBounds(10,15, 120, 60);
-        backLogo.setIcon(Utils.setLabelIcon("src/main/java/images/UOM_LOGO_3.png",backLogo));
+        backLogo.setBounds(10, 15, 120, 60);
+        backLogo.setIcon(Utils.setLabelIcon("src/main/java/images/UOM_LOGO_3.png", backLogo));
 
 
-        if(type.equals("MasterCard"))
-        {
+        if (type.equals("MasterCard")) {
             frontCardPanel.add(logo);
             Dimension cardTypeSize = frontCardPanel.getPreferredSize();
-            logo.setBounds(290, 120,100,80);
+            logo.setBounds(290, 120, 100, 80);
             logo.setIcon(Utils.setLabelIcon("src/main/java/images/master.png", logo));
-        }
-        else
-        {
+        } else {
             frontCardPanel.add(logo);
             Dimension cardTypeSize = frontCardPanel.getPreferredSize();
-            logo.setBounds(300, 120,90,70);
+            logo.setBounds(300, 120, 90, 70);
             logo.setIcon(Utils.setLabelIcon("src/main/java/images/visa.jpg", logo));
 
         }
 
         frontCardPanel.add(expCard);
         Dimension expCardSize = frontCardPanel.getPreferredSize();
-        expCard.setBounds(180,80,expCardSize.width,expCardSize.height);
+        expCard.setBounds(180, 80, expCardSize.width, expCardSize.height);
 
         frontCardPanel.add(expLabel);
-        expLabel.setBounds(165,130,100,50);
+        expLabel.setBounds(165, 130, 100, 50);
 
         frontCardPanel.add(chipPanel);
         chipPanel.setBackground(Color.LIGHT_GRAY);
         chipPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        chipPanel.setBounds(30,50,40,30);
+        chipPanel.setBounds(30, 50, 40, 30);
 
 
         backCardPanel.add(backLabel);
-        backLabel.setBounds(140,0,200,100);
+        backLabel.setBounds(140, 0, 200, 100);
         backLabel.setFont(new Font("Courier", Font.PLAIN, 25));
 
         backCardPanel.add(cardCvv);
         Dimension CVVSize = backCardPanel.getPreferredSize();
-        cardCvv.setBounds(300,0,CVVSize.width,CVVSize.height);
+        cardCvv.setBounds(300, 0, CVVSize.width, CVVSize.height);
 
         cvvLabel = new JLabel("CVV");
         backCardPanel.add(cvvLabel);
-        cvvLabel.setBounds(260,75,100,50);
+        cvvLabel.setBounds(260, 75, 100, 50);
+
 
         PrePanel.setBackground(Color.LIGHT_GRAY);
+
 
         PrePanel.add(frontCardPanel);
         PrePanel.add(backCardPanel);
 
+
         prFrame.add(header);
-        prFrame.add(panel);
         prFrame.add(PrePanel);
 
-        panel.setBounds(200,200,900,1);
+
+
 
         prFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBackground(Color.LIGHT_GRAY);
