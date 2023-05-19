@@ -19,6 +19,7 @@ public class MainFrame extends JFrame {
     private JPanel cardPanel;
     private JButton transactionHistoryButton;
     private JButton loanButton;
+    private JButton createCardButton;
 
     public MainFrame(){
         JFrame mainFrame = new Template();
@@ -31,6 +32,7 @@ public class MainFrame extends JFrame {
         cardPanel = new CardPanel();
         transactionHistoryButton = new JButton("Transaction History");
         loanButton = new JButton("Apply for a loan");
+        createCardButton = new JButton("Create your new card today!");
 
 //      Setting up header
         header.setBounds(250, 50, 1000, 100);
@@ -45,6 +47,16 @@ public class MainFrame extends JFrame {
             }
         });
 
+//      Setting up createCard button
+        createCardButton.setBounds(370, 710, 250, 30);
+        createCardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CreateNewCardFrame();
+                mainFrame.dispose();
+            }
+        });
+
 //      Adding components to the frame
         mainFrame.add(header);
         mainFrame.add(expensesPanel);
@@ -52,6 +64,7 @@ public class MainFrame extends JFrame {
         mainFrame.add(spendCategoriesPanel);
         mainFrame.add(loanButton);
         mainFrame.add(cardPanel);
+        mainFrame.add(createCardButton);
 
 //      Basic settings
         mainFrame.setVisible(true);

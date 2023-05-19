@@ -133,34 +133,21 @@ public class PreviewCardFrame extends JFrame {
         backCardPanel.add(cvvLabel);
         cvvLabel.setBounds(260,75,100,50);
 
-
         PrePanel.setBackground(Color.LIGHT_GRAY);
-
-
-
-
 
         PrePanel.add(frontCardPanel);
         PrePanel.add(backCardPanel);
-
-
 
         prFrame.add(header);
         prFrame.add(panel);
         prFrame.add(PrePanel);
 
-
-
         panel.setBounds(200,200,900,1);
-
-
-
 
         prFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBackground(Color.LIGHT_GRAY);
         prFrame.setVisible(true);
         prFrame.getContentPane().setBackground(Color.LIGHT_GRAY);
-
     }
 
 
