@@ -43,10 +43,8 @@ public class PreviewPaymentFrame extends JFrame {
         successPayment.add(innerPanel);
         successPayment.add(returnToMainPageButton);
 
-        this.setContentPane(successPayment);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        successPayment.setVisible(true);
+        successPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
 

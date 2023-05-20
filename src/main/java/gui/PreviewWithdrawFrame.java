@@ -48,7 +48,6 @@ public class PreviewWithdrawFrame extends JFrame{
 
         successWithdraw.setVisible(true);
         successWithdraw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        successWithdraw.getContentPane().setBackground(Color.LIGHT_GRAY);
 
 
     }

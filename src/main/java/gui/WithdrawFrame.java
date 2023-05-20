@@ -62,10 +62,8 @@ public class WithdrawFrame extends JFrame {
         withdraw.add(continueButton);
         withdraw.add(returnToMainPageButton);
 
-        this.setContentPane(withdraw);
-        this.setVisible(true);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        withdraw.setVisible(true);
+        withdraw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public boolean isCorrect(String anAmount){
