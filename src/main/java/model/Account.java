@@ -23,6 +23,9 @@ public class Account {
     @Column(name = "clientUsername", nullable = false, length = 27)
     private String client;
 
+    @Column(name = "costPerTransactiom", nullable = false, length = 10)
+    private int costPerTransaction;
+
 
     @Transient
     private ArrayList<Transaction> tList = new ArrayList<>(); //λίστα που περιέχει transactions
