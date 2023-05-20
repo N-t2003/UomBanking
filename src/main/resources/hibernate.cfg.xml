@@ -7,7 +7,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name = "hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name = "hibernate.connection.url">jdbc:sqlite:database.db</property>
+        <property name = "hibernate.connection.url">jdbc:sqlite:Database.db</property>
         <property name = "hibernate.connection.username">root</property>
         <property name = "hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name = "hbm2ddl.auto">update</property>

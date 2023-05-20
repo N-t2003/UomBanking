@@ -5,11 +5,9 @@ import jakarta.persistence.Id;
 
 import javax.persistence.*;
 
-@Embeddable
 @Entity
-@Table(name = "WITHDRAW")
-@PrimaryKeyJoinColumn(name = "ID")
-@DiscriminatorColumn(name = "withdraw", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "Withdraw")
+@DiscriminatorValue(value = "Withdraw")
 public class Withdraw extends Transaction{
 
 
