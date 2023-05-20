@@ -25,13 +25,18 @@ public class Utils {
         return header;
     }
 
-    public static JButton returnToMainPageButton()  {
+    public static JButton returnToMainPageButton(JFrame frame)  {
         JButton returnToMainPageButton = new JButton("Return to main page");
         returnToMainPageButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JOptionPane.showMessageDialog(null, "Are you sure you want to return to main page?","Return",
+                        JOptionPane.OK_CANCEL_OPTION);
+                frame.dispose();
+                new MainFrame();
             }
         });
+
+        return returnToMainPageButton;
     }
 }
