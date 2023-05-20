@@ -9,6 +9,7 @@ import java.util.Random;
 @Table(name = "TRANSACTIONS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "transaction_type", discriminatorType = DiscriminatorType.STRING)
+@MappedSuperclass
 public abstract class Transaction {
 
     @Id
@@ -65,7 +66,45 @@ public abstract class Transaction {
 
     }
 
+    public String getID() {
+        return ID;
+    }
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getClientusername() {
+        return clientusername;
+    }
+
+    public void setClientusername(String clientusername) {
+        this.clientusername = clientusername;
+    }
 
     public void printTransaction(){
 
