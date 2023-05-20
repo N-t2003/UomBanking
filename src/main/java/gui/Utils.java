@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class Utils {
@@ -21,5 +23,15 @@ public class Utils {
         header.setBounds(350, 100, 1000, 100);
         header.setFont(new Font("Courier", Font.PLAIN, 45));
         return header;
+    }
+
+    public static JButton returnToMainPageButton()  {
+        JButton returnToMainPageButton = new JButton("Return to main page");
+        returnToMainPageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 }
