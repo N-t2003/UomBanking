@@ -78,8 +78,8 @@ public class PaymentFrame extends JFrame {
         payment.add(submitButton);
         payment.add(returnToMainPageButton);
 
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        payment.setVisible(true);
+        payment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

@@ -48,10 +48,8 @@ public class PreviewDepositFrame extends JFrame {
         successDeposit.add(innerPanel);
         successDeposit.add(returnToMainPageButton);
 
-        this.setContentPane(successDeposit);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        successDeposit.setVisible(true);
+        successDeposit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

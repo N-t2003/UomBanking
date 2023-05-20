@@ -62,10 +62,9 @@ public class DepositFrame extends JFrame {
         deposit.add(continueButton);
         deposit.add(returnToMainPageButton);
 
-        this.setContentPane(deposit);
-        this.setVisible(true);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        deposit.setVisible(true);
+        deposit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
