@@ -24,9 +24,11 @@ public class AppAccount {
         Transaction tx = session.beginTransaction();
 
 //      Creating a new user class
-//        Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
+
 //        User user1 = new User();
         Account acc1 = new Account(100.2,"","","Astakos");
+        Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
+
 //        Client cl1 = new Client("1", "1", "1", "1",
 //                "1", "232", "1");
 
@@ -39,8 +41,7 @@ public class AppAccount {
 
 //      Saving the user
         session.save(acc1);
-//        session.save(withdraw);
-//        session.save(cl1);
+        session.save(withdraw);
         session.getTransaction().commit();
         session.close();
 

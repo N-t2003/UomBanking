@@ -71,13 +71,6 @@ public class LoanFrame extends JFrame {
             }
         });
 
-
-
-
-
-
-
-
         Loans.add(header);
         Loans.add(message);
         Loans.add(message1);
@@ -87,11 +80,5 @@ public class LoanFrame extends JFrame {
         Loans.setVisible(true);
         Loans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Loans.getContentPane().setBackground(Color.LIGHT_GRAY);
-
-
-
-
-
     }
-
 }
