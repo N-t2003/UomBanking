@@ -3,8 +3,7 @@ package gui;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class CreateAccountPanel extends JPanel {
     private JCheckBox showPassword;
@@ -69,26 +68,29 @@ public class CreateAccountPanel extends JPanel {
         costPerTransaction.setSelectedIndex(0);
         costPerTransaction.setEditable(true);
 
-//      Setting the confirm password validation label
-        checkLabel.setSize(new Dimension(20, 20));
-
 
 //      Setting up the confirm password field
         passwordField2.setEchoChar('•');
-        if (passwordField2.getPassword().length != 0) {
-            if (passwordField2.getText().equals(passwordField.getText())) {
-                checkLabel.setVisible(true);
-                checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Valid.png", checkLabel));
-                checkLabel.setSize(20,20);
-                checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
+        passwordField2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (passwordField2.getText().length() != 0) {
+                    if (passwordField2.getText().equals(passwordField.getText())) {
+                        checkLabel.setVisible(true);
+                        checkLabel.setSize(18, 20);
+                        checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Valid.png", checkLabel));
+                        checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
 
-            } else {
-                checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/Invalid.png", checkLabel));
-                checkLabel.setSize(20,20);
-                checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
-                checkLabel.setVisible(true);
+                    } else {
+                        checkLabel.setSize(18, 20);
+                        checkLabel.setVisible(true);
+                        checkLabel.setIcon(Utils.setLabelIcon("src/main/java/images/invalid.png", checkLabel));
+                        checkLabel.setFont(new Font("Courier", Font.PLAIN, 10));
+                    }
+                }
             }
-        }
+        });
+
 
 //      Setting up signInButton
         signInButton.addActionListener(new ActionListener() {
@@ -190,7 +192,7 @@ public class CreateAccountPanel extends JPanel {
         gc.insets = new Insets(0, 0, 0, 0);
         add(passwordField, gc);
 
-//      Fifth row-Second column
+//      Fifth row-Third column
         gc.gridx++;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
@@ -224,6 +226,7 @@ public class CreateAccountPanel extends JPanel {
         gc.gridx++;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
+        checkLabel.setVisible(false);
         add(checkLabel, gc);
 
 //      Eighth row-First column
