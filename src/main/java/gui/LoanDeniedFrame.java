@@ -41,10 +41,7 @@ public class LoanDeniedFrame extends JFrame {
         loanPolicyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(loanPolicyButton, "You can take a loan:\n" +
-                        "1) If the amount you want is bigger than your balance*5\n" +
-                        "2) You can select between 1 to 12 doses\n" +
-                        "3) If you select 6 or less doses your interest is 2%, else is 4%", "INFO", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(loanPolicyButton, "You can take a loan if the amount you want is lower or equal than your balance*5", "INFO", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -75,9 +72,8 @@ public class LoanDeniedFrame extends JFrame {
         innerPanel.add(label3);
         innerPanel.add(loanPolicyButton);
         innerPanel.add(enterInfoAgainButton);
-        this.setContentPane(frame);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
 

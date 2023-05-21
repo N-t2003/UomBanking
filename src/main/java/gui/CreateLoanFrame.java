@@ -95,7 +95,7 @@ public class CreateLoanFrame extends JFrame{
                 if(doses<1 || doses>12)
                     JOptionPane.showMessageDialog(submitButton, "You can select 1 to 12 doses", "ERROR", JOptionPane.ERROR_MESSAGE);
 
-                if(CheckLoanAmount(loanAmount, balance) && (doses>=1 && doses<=12)){
+                if(CheckLoanAmount(loanAmount, balance) && (doses>=1 && doses<=12) && loanAmountString.matches("[0-9]+") && dosesString.matches("[0-9]+")){
                     //frame success
                     double totalAmount = CalculateTotalLoanAmount(loanAmount, doses);
                     /*Date date = new Date();
@@ -104,7 +104,8 @@ public class CreateLoanFrame extends JFrame{
                     new LoanSuccessFrame();
                     frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το LoanSuccessFrame και κλείνει το παράθυρο των δανείων.
                 }
-                else{
+
+                if(!CheckLoanAmount(loanAmount, balance)){
                     //frame denied
                     new LoanDeniedFrame();
                     frame.dispose();
@@ -132,9 +133,8 @@ public class CreateLoanFrame extends JFrame{
         frame.add(dropDownList);
         frame.add(submitButton);
         frame.add(returnToTheMainPageButton);
-        this.setContentPane(frame);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public boolean CheckLoanAmount(double loanAmount, double balance){
