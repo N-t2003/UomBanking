@@ -53,10 +53,8 @@ public class LoanSuccessFrame extends JFrame{
         frame.add(label2);
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(returnToTheMainPageButton);
-
-        this.setContentPane(frame);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     //ΛΕΙΠΕΙ Η ΜΕΘΟΔΟΣ calcDate
