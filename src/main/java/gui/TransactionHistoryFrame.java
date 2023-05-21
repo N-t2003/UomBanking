@@ -1,5 +1,4 @@
 package gui;
-
 import model.Transaction;
 
 import javax.swing.*;
@@ -12,13 +11,14 @@ public class TransactionHistoryFrame extends JFrame {
     private JButton returnToMainPageButton;
     private JLabel header;
     private JLabel subheader;
-    private JFrame frame = new Template();
-    private JButton showTransactionButton= new JButton("Show Transaction History");
-
+    private JFrame frame;
+    private JButton showTransactionButton;
 
 
     public TransactionHistoryFrame(){
 
+        frame = new Template();
+        showTransactionButton= new JButton("Show Transaction History");
         header = Utils.setHeader("Transaction history");
         subheader = new JLabel("See what you spend in detail");
 
@@ -38,16 +38,21 @@ public class TransactionHistoryFrame extends JFrame {
             }
         });
 
+        returnToMainPageButton = Utils.returnToMainPageButton(frame);
+        returnToMainPageButton.setBounds(470,500,200,30);
+
 
         header.setBounds(400,100,1000,100);
         subheader.setBounds(500,140,1500,100);
         sc.setBounds(320,250,500,100);
-        showTransactionButton.setBounds(470,400,200,20);
+        showTransactionButton.setBounds(470,400,200,30);
 
         frame.add(header);
         frame.add(subheader);
         frame.add(sc);
         frame.add(showTransactionButton);
+        frame.add(returnToMainPageButton);
+
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

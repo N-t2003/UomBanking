@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TransferFrame extends JFrame {
-    private JFrame frame;
+    private JFrame trFrame;
     private JLabel header;
     private JLabel ibanLabel;
     private JLabel amountLabel;
@@ -17,7 +17,7 @@ public class TransferFrame extends JFrame {
     private JLabel line;
     public TransferFrame(){
 
-        frame = new Template();
+        trFrame = new Template();
         this.setLayout(null);
         ibanField = new JTextField();
         amountField = new JTextField();
@@ -44,25 +44,26 @@ public class TransferFrame extends JFrame {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                frame.dispose();
+                trFrame.dispose();
                 new PreviewTransferFrame();
             }
         });
 
+        returnToMainPageButton = Utils.returnToMainPageButton(trFrame);
         returnToMainPageButton.setBounds(970,710,200,30);
 
-        frame.add(header);
-        frame.add(line);
-        frame.add(ibanLabel);
-        frame.add(ibanField);
-        frame.add(amountLabel);
-        frame.add(amountField);
-        frame.add(continueButton);
-        frame.add(returnToMainPageButton);
+        trFrame.add(header);
+        trFrame.add(line);
+        trFrame.add(ibanLabel);
+        trFrame.add(ibanField);
+        trFrame.add(amountLabel);
+        trFrame.add(amountField);
+        trFrame.add(continueButton);
+        trFrame.add(returnToMainPageButton);
 
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setBackground(Color.LIGHT_GRAY);
+        trFrame.setVisible(true);
+        trFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        trFrame.setBackground(Color.LIGHT_GRAY);
 
     }
 }

@@ -10,24 +10,24 @@ import static java.awt.Color.getColor;
 
 public class CreateNewCardFrame extends JFrame {
 
-    private JFrame fr = new Template();
+    private JFrame fr;
     private JLabel header;
     private JLabel nameLabel; //θα φιλοξενήσει το όνομα
-    private JTextField nameText = new JTextField();
+    private JTextField nameText;
     private JLabel typeLabel;
-    private JComboBox type = new JComboBox(); //για την επιλογη του τυπυ της καρτας
+    private JComboBox type; //για την επιλογη του τυπυ της καρτας
     private JLabel colorLabel; //θα φιλοξενήσει το χρώμα
     private JButton colorButton; //κουμπί για αλλαγή χρώματος
     private JLabel pinLabel; //θα φιλοξενήσει το πιν
-    private JPasswordField pinField = new JPasswordField(4);
+    private JPasswordField pinField;
     private JLabel conPinLabel;
-    private JPasswordField conPinField = new JPasswordField(4);
-    private JButton createCardButton = new JButton("Create card");//κουμπί για δημιουργία κάρτας
-    private JButton returnToMainPageButton = new JButton("Return to the main page");//κουμπί για επιστροφή στο αρχικό μενού
+    private JPasswordField conPinField;
+    private JButton createCardButton;//κουμπί για δημιουργία κάρτας
+    private JButton  returnToMainPageButton;//κουμπί για επιστροφή στο αρχικό μενού
     private JLabel message; //υπενθύμιση για πιν
-    private JPanel chipPanel = new JPanel(); //υποθετικό τσιπ κάρτας
+    private JPanel chipPanel; //υποθετικό τσιπ κάρτας
     public JColorChooser coChooser; //για επιλογή χρώματος
-    private JLabel line = new JLabel("__________________________________________________________________________________________________________________________");
+    private JLabel line;
 
     String pin1;
     String pin2;
@@ -36,6 +36,16 @@ public class CreateNewCardFrame extends JFrame {
     public CreateNewCardFrame() {
         this.setLayout(null);
 
+        fr = new Template();
+        nameText = new JTextField();
+        type = new JComboBox();
+        pinField = new JPasswordField(4);
+        conPinField = new JPasswordField(4);
+        createCardButton = new JButton("Create card");
+        chipPanel = new JPanel();
+        line = new JLabel("__________________________________________________________________________________________________________________________");
+        coChooser = new JColorChooser();
+
         String[] choices = {"VISA", "MasterCard"}; //δυο τυποί κάρτας
         message = new JLabel("Enter 4 digits");
         message.setFont(new Font("Courier", Font.PLAIN, 10));
@@ -43,15 +53,12 @@ public class CreateNewCardFrame extends JFrame {
         header = Utils.setHeader("Enter card details");
         header.setBounds(400,100,1000,100);
 
-        fr.add(line);
         line.setBounds(180,140,900,100);
 
         nameLabel = new JLabel("Name in the card");
         typeLabel = new JLabel("Type");
 
         final JComboBox<String> cb = new JComboBox<String>(choices); //για επιλογή τύπου κάρτας
-
-        coChooser = new JColorChooser();
 
         colorLabel = new JLabel("Color");
         colorButton = new JButton("Choose Color");
@@ -82,8 +89,8 @@ public class CreateNewCardFrame extends JFrame {
         message.setBounds(480, 405, 1000, 20);
         conPinLabel.setBounds(410, 400, 1000, 100);
         conPinField.setBounds(480, 440, 150, 20);
-        createCardButton.setBounds(500, 480, 100, 20);
-        returnToMainPageButton.setBounds(450, 550, 200, 20);
+        createCardButton.setBounds(500, 480, 100, 25);
+        //  returnToMainPageButton.setBounds(450, 550, 200, 25);
 
         createCardButton.addActionListener(new ActionListener() {
             @Override
@@ -119,9 +126,14 @@ public class CreateNewCardFrame extends JFrame {
             }
         });
 
+        returnToMainPageButton = Utils.returnToMainPageButton(fr);
+        returnToMainPageButton.setBounds(450, 550, 200, 25);
+
+
         //Τοποθέτηση στοιχείων στο Frame
 
         fr.add(header);
+        fr.add(line);
         fr.add(nameLabel);
         fr.add(nameText);
         fr.add(typeLabel);
@@ -157,7 +169,6 @@ public class CreateNewCardFrame extends JFrame {
                 break;
             }
 
-
         }
 
         for (int i = 0; i < le2; i++) {
@@ -185,3 +196,5 @@ public class CreateNewCardFrame extends JFrame {
         }
     }
 }
+
+

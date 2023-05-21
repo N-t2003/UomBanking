@@ -30,12 +30,13 @@ public class TransactionTypeFrame extends JFrame {
         withdrawButton = new JButton("Withdraw");
         transferButton = new JButton("Transfer");
         paymentButton = new JButton("Payment");
-        returnToMainPageButton = new JButton("Return to the main page");
 
         depositButton.setBounds(520,250,120,30);
         withdrawButton.setBounds(520,320,120,30);
         transferButton.setBounds(520,390,120,30);
         paymentButton.setBounds(520,460,120,30);
+
+        returnToMainPageButton = Utils.returnToMainPageButton(frame);
         returnToMainPageButton.setBounds(480,560,200,30);
 
         depositButton.addActionListener(new ActionListener() {
@@ -70,14 +71,6 @@ public class TransactionTypeFrame extends JFrame {
             }
         });
 
-        returnToMainPageButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                frame.dispose();
-                new MainFrame();
-            }
-        });
-
         frame.add(header);
         frame.add(line);
         frame.add(depositButton);
@@ -93,3 +86,4 @@ public class TransactionTypeFrame extends JFrame {
 
     }
 }
+
