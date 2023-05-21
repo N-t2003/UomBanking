@@ -4,41 +4,62 @@ import model.Card;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PreviewCardFrame extends JFrame {
 
     private JLabel header; //επικεφαλίδα
-    private JFrame prFrame = new Template();
-    private JPanel PrePanel = new JPanel(); //panel που θα φιλοξενήσει τα front και back
-    private JPanel frontCardPanel = new JPanel(); //μπροστά μέρος της κάρτας
-    private JPanel backCardPanel = new JPanel(); //πίσω μέρος της κάρτας
-    private JTextField typeText = new JTextField(); //τύπος
+    private JFrame prFrame;
+    private JPanel PrePanel; //panel που θα φιλοξενήσει τα front και back
+    private JPanel frontCardPanel; //μπροστά μέρος της κάρτας
+    private JPanel backCardPanel; //πίσω μέρος της κάρτας
+    private JTextField typeText; //τύπος
     private JLabel carNum; //φιλοξενία αριθμού κάρτας
-    private JLabel nameLabel = new JLabel(); //φιλοξενία ονόματος κάρτας
-    private JLabel expCard = new JLabel(); //φιλοξενία ημ.λήξης κάρτας
-    private JLabel cardCvv = new JLabel(); //φιλοξενία cvv κάρτας
-    private JLabel logo = new JLabel(); //φιλοξενία εικόνας κάρτας(MasterCard,VISA)
-    private JLabel frontLogo = new JLabel(); //φιλοξενία εικόνας κάρτας(UOM)
-    private JLabel backLogo = new JLabel(); //φιλοξενία εικόνας κάρτας (UOM)
-    private JLabel font = new JLabel();
-    private JPanel chipPanel = new JPanel(); //φιλοξενία chip κάρτας
+    private JLabel nameLabel; //φιλοξενία ονόματος κάρτας
+    private JLabel expCard;//φιλοξενία ημ.λήξης κάρτας
+    private JLabel cardCvv; //φιλοξενία cvv κάρτας
+    private JLabel logo; //φιλοξενία εικόνας κάρτας(MasterCard,VISA)
+    private JLabel frontLogo; //φιλοξενία εικόνας κάρτας(UOM)
+    private JLabel backLogo; //φιλοξενία εικόνας κάρτας (UOM)
+    private JLabel font;
+    private JPanel chipPanel; //φιλοξενία chip κάρτας
     private StringBuilder cardNumberBuilder; // για επεξεργασία και προσθήκη κένων στον αριθμό της κάρτας
 
     //A label for valid thru card
     private JLabel expLabel;
     private JLabel backLabel;  //Label for name of our bank
     private JLabel cvvLabel;
-    private JLabel line = new JLabel("__________________________________________________________________________________________________________________________________________");
-    private JLabel deblabel = new JLabel("Debit card");
+    private JLabel line;
+    private JLabel deblabel;
+    private JButton returnToMainPageButton;
 
 
 
     public PreviewCardFrame(String type, long cardNum, String cardExp, String cardName, long cardCVV, Color cardColor) {
 
+        //Arxikopoihsh metavlhtwn
+        prFrame = new Template();
+        PrePanel = new JPanel();
+        frontCardPanel = new JPanel();
+        backCardPanel = new JPanel();
+        typeText = new JTextField();
+        nameLabel = new JLabel();
+        expCard = new JLabel();
+        cardCvv = new JLabel();
+        logo = new JLabel();
+        frontLogo = new JLabel();
+        backLogo = new JLabel();
+        font = new JLabel();
+        chipPanel = new JPanel();
+        line = new JLabel("__________________________________________________________________________________________________________________________________________");
+        deblabel = new JLabel("Debit card");
+
         this.setLayout(null);
-        prFrame.getContentPane();
         frontCardPanel.setLayout(null);
         backCardPanel.setLayout(null);
+
+        returnToMainPageButton = new JButton("Return to the main page");
 
         cardCvv.setText(String.valueOf(cardCVV));
         expCard.setText(cardExp);
@@ -56,6 +77,10 @@ public class PreviewCardFrame extends JFrame {
         Card aCard = new Card(0, "", 0, 0);
         this.buildCard(type,cardNum,cardExp,cardName,cardCVV,cardColor); //method for adding card details in panel
 
+        returnToMainPageButton = Utils.returnToMainPageButton(prFrame);
+        returnToMainPageButton.setBounds(550, 550, 200, 30);
+
+        prFrame.add(returnToMainPageButton);
 
     }
 
@@ -163,3 +188,4 @@ public class PreviewCardFrame extends JFrame {
         prFrame.setBackground(Color.LIGHT_GRAY);
     }
 }
+
