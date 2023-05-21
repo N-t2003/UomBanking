@@ -31,13 +31,12 @@ public class CreateNewCardFrame extends JFrame {
 
     String pin1;
     String pin2;
-    Card cardDe;
     Color color;
 
     public CreateNewCardFrame() {
         this.setLayout(null);
 
-        String[] choices = {"VISA", "MasterCard"};
+        String[] choices = {"VISA", "MasterCard"}; //δυο τυποί κάρτας
         message = new JLabel("Enter 4 digits");
         message.setFont(new Font("Courier", Font.PLAIN, 10));
 
@@ -50,26 +49,28 @@ public class CreateNewCardFrame extends JFrame {
         nameLabel = new JLabel("Name in the card");
         typeLabel = new JLabel("Type");
 
-        final JComboBox<String> cb = new JComboBox<String>(choices);
+        final JComboBox<String> cb = new JComboBox<String>(choices); //για επιλογή τύπου κάρτας
+
         coChooser = new JColorChooser();
 
         colorLabel = new JLabel("Color");
+        colorButton = new JButton("Choose Color");
 
         pinLabel = new JLabel("Pin");
         conPinLabel = new JLabel("Confirm Pin");
 
-        colorButton = new JButton("Choose Color");
-
+        //Με το πάτημα του κουμπιού θα εμφανίζονται τα διαθέσιμα χρώματα για επιλογή
         colorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (actionEvent.getSource() == colorButton) {
+                if (actionEvent.getSource() == colorButton)
+                {
                     color = coChooser.showDialog(null, "", BLACK);
-
                 }
             }
         });
 
+        //Τοποθέτηση στοιχείων στις κατάλληλες διαστάσεις
         nameLabel.setBounds(380, 200, 1000, 100);
         nameText.setBounds(480, 240, 150, 20);
         typeLabel.setBounds(450, 250, 1000, 100);
@@ -87,6 +88,7 @@ public class CreateNewCardFrame extends JFrame {
         createCardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                //Παίρνω το String Value των pin για να τα ελέγξω στη μέθοδο check pin
                 pin1 = String.valueOf(pinField.getPassword());
                 pin2 = String.valueOf(conPinField.getPassword());
 
@@ -96,31 +98,28 @@ public class CreateNewCardFrame extends JFrame {
                 }
                 else
                 {
+                    //Δημιουργείται η κάρτα
                     Card card = new Card(0,"",0,0);
                     long cardNum = card.getCardNumber();
                     long cardCVV = card.getCvv();
                     String cardExp = card.getDateExp();
                     String cardName  = nameText.getText();
-                    String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText();
+                    String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText(); //παίρνω επιλογή απο τύπο κάρτας
 
                     if(cardName.equals("")){
                         JOptionPane.showMessageDialog(fr, "Please insert a Name!",
                                 "Name Error", JOptionPane.ERROR_MESSAGE);
                     }
 
-
                     else {
-
-
                         fr.dispose();
                         new PreviewCardFrame(typedText, cardNum, cardExp, cardName, cardCVV, color);
                     }
-
-
                 }
-
             }
         });
+
+        //Τοποθέτηση στοιχείων στο Frame
 
         fr.add(header);
         fr.add(nameLabel);
@@ -139,7 +138,7 @@ public class CreateNewCardFrame extends JFrame {
 
         fr.setVisible(true);
         fr.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        fr.getContentPane().setBackground(Color.LIGHT_GRAY);
+        fr.setBackground(Color.LIGHT_GRAY);
 
     }
 
@@ -169,13 +168,19 @@ public class CreateNewCardFrame extends JFrame {
 
         }
 
-        if ((le1 == 4 && le2 == 4) && (flag1 && flag2)) {
-            if (pin1.equals(pin2)) {
+        if ((le1 == 4 && le2 == 4) && (flag1 && flag2))
+        {
+            if (pin1.equals(pin2))
+            {
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
