@@ -54,15 +54,8 @@ public class LoanDeniedFrame extends JFrame {
             }
         });
 
-        returnToTheMainPageButton = new JButton("Return to the main page");
+        returnToTheMainPageButton = Utils.returnToMainPageButton(frame);
         returnToTheMainPageButton.setBounds(485,650,200,35);
-        returnToTheMainPageButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MainFrame();
-                frame.dispose();
-            }
-        });
 
         frame.add(header);
         frame.add(label1);

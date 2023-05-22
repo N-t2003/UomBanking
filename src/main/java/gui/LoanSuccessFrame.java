@@ -30,7 +30,7 @@ public class LoanSuccessFrame extends JFrame{
         label2.setBounds(500, 250, 1000, 100 );
         label2.setFont(new Font("Courier", Font.PLAIN, 30));
 
-        returnToTheMainPageButton = new JButton("Return to the main page");
+        returnToTheMainPageButton = Utils.returnToMainPageButton(frame);
         returnToTheMainPageButton.setBounds(485,650,200,35);
 
         Object rowData[][] = new Object[4][2];
@@ -41,13 +41,6 @@ public class LoanSuccessFrame extends JFrame{
         scrollPane.setBounds(270,350,600,100);
         table.setEnabled(false);
 
-        returnToTheMainPageButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MainFrame();
-                frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το MainFrame και κλείνει το παράθυρο των δανείων.
-            }
-        });
 
         frame.add(header);
         frame.add(label1);
@@ -79,7 +72,7 @@ public class LoanSuccessFrame extends JFrame{
                 expirationDay = 1;
                 expirationMonth++;
             }
-            else if(expirationMonth == 2 && (currentDay == 30 || currentDay ==31)){
+            else if(expirationMonth == 2 && (currentDay == 29 || currentDay == 30 || currentDay ==31)){
                 int year = currentYear + 2000;
                 boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
                 if(isLeapYear){
