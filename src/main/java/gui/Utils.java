@@ -30,10 +30,12 @@ public class Utils {
         returnToMainPageButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Are you sure you want to return to main page?","Return",
-                        JOptionPane.OK_CANCEL_OPTION);
-                frame.dispose();
-                new MainFrame();
+                int result = JOptionPane.showConfirmDialog(null, "Do you want to return to the main page?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+                if (result == JOptionPane.YES_OPTION) {
+                    frame.dispose();
+                    new MainFrame();
+                }
             }
         });
 
