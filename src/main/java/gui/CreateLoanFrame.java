@@ -74,7 +74,7 @@ public class CreateLoanFrame extends JFrame{
         submitButton = new JButton("Submit");
         submitButton.setBounds(500,550,200,35);
 
-        returnToTheMainPageButton = new JButton("Return to the main page");
+        returnToTheMainPageButton = Utils.returnToMainPageButton(frame);
         returnToTheMainPageButton.setBounds(970,720,200,35);
 
         submitButton.addActionListener(new ActionListener() {
@@ -112,14 +112,6 @@ public class CreateLoanFrame extends JFrame{
                 }
             }
 
-        });
-
-        returnToTheMainPageButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MainFrame();
-                frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το MainFrame και κλείνει το παράθυρο των δανείων.
-            }
         });
 
         frame.add(header);
