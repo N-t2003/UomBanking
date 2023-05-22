@@ -32,7 +32,7 @@ public class PaymentFrame extends JFrame {
         amountField = new JTextField();
         expensesLabel = new JLabel("Type of expense");
         submitButton = new JButton("Submit");
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(payment);
 
         //Placing the elements
         header.setBounds(325, 100, 1000, 100);

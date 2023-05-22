@@ -24,7 +24,7 @@ public class DepositFrame extends JFrame {
         amountLabel = new JLabel("Enter amount");
         amountField = new JTextField();
         continueButton = new JButton("Continue");
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(deposit);
 
         //Placing the elements
         header.setBounds(500, 100, 1000, 100);
