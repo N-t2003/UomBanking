@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Payment extends Transaction{
+public class Payment extends Transactions {
 
     ArrayList<Type> typeList= new ArrayList<>();
 

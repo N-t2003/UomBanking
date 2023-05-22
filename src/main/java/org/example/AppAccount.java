@@ -7,11 +7,10 @@ package org.example;
 import model.Withdraw;
 import org.hibernate.*;
 import model.Account;
-import model.Client;
+import model.Transactions;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
 public class AppAccount {
     public static void main(String[] args) {
@@ -27,6 +26,7 @@ public class AppAccount {
 
 //        User user1 = new User();
         Account acc1 = new Account(100.2,"","","Astakos");
+        Transactions tr1 = new Transactions("", "", 0, "", "");
         Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
 
 //        Client cl1 = new Client("1", "1", "1", "1",
@@ -41,6 +41,7 @@ public class AppAccount {
 
 //      Saving the user
         session.save(acc1);
+        session.save(tr1);
         session.save(withdraw);
         session.getTransaction().commit();
         session.close();

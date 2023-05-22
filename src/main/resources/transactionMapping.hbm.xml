@@ -3,7 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping http://www.hibernate.org/xsd/hibernate-mapping/hibernate-mapping-4.0.xsd">
 
-    <class name="model.Transaction" table="TRANSACTIONS">
+    <class name="model.Transactions" table="TRANSACTIONS">
         <id name="ID" column="ID" type="string">
             <generator class="assigned"/>
         </id>

@@ -1,8 +1,6 @@
 
 package model;
 
-import org.example.AppAccount;
-
 import javax.persistence.*;
 import java.util.Random;
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class Account {
 
 
     @Transient
-    private ArrayList<Transaction> tList = new ArrayList<>(); //λίστα που περιέχει transactions
+    private ArrayList<Transactions> tList = new ArrayList<>(); //λίστα που περιέχει transactions
     @Transient
     private ArrayList<String> lList = new ArrayList<String>(); //λίστα που περιέχει Loans
 
@@ -44,7 +42,7 @@ public class Account {
         System.out.println(this.IBAN);
     }
 
-    public void tList(Transaction trans){
+    public void tList(Transactions trans){
 
         tList.add(trans); //προσθήκη ενός transaction στην λίστα
     }
@@ -90,7 +88,7 @@ public class Account {
     }
 
 
-    public ArrayList<Transaction> printTList() {
+    public ArrayList<Transactions> printTList() {
         return tList;
     }
 
@@ -146,7 +144,7 @@ public class Account {
         this.client = client;
     }
 
-    public void settList(ArrayList<Transaction> tList) {
+    public void settList(ArrayList<Transactions> tList) {
         this.tList = tList;
     }
 

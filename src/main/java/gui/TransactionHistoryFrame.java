@@ -1,11 +1,10 @@
 package gui;
-import model.Transaction;
+import model.Transactions;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class TransactionHistoryFrame extends JFrame {
     private JButton returnToMainPageButton;
@@ -22,7 +21,7 @@ public class TransactionHistoryFrame extends JFrame {
         header = Utils.setHeader("Transaction history");
         subheader = new JLabel("See what you spend in detail");
 
-        Transaction[][] trans = new Transaction[5][5];
+        Transactions[][] trans = new Transactions[5][5];
         String[] column={"Transaction","Amount","Date","ID","DESCRIPTION"};
 
         JTable jt = new JTable(trans,column);
