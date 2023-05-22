@@ -10,9 +10,10 @@ public class PreviewTransferFrame {
     private JLabel balance;
     private JPanel innerPanel;
     private JButton returnToMainPageButton;
+    JFrame successTransfer;
 
     public PreviewTransferFrame(){
-        JFrame successTransfer = new Template();
+        successTransfer = new Template();
 
         //Initializing elements
         header = Utils.setHeader("Your money has been successfully transferred!");
@@ -20,7 +21,7 @@ public class PreviewTransferFrame {
         message2= new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(successTransfer);
 
         //Placing the elements
         header.setBounds(300, 100, 1000, 100);

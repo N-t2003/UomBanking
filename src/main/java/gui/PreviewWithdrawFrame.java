@@ -11,8 +11,9 @@ public class PreviewWithdrawFrame extends JFrame{
     private JLabel balance;
     private JPanel innerPanel;
     private JButton returnToMainPageButton;
+    JFrame successWithdraw;
     public PreviewWithdrawFrame(){
-        JFrame successWithdraw = new Template();
+        successWithdraw = new Template();
 
         //Initializing components
         header = Utils.setHeader("Your money has been successfully withdrawn!");
@@ -20,7 +21,7 @@ public class PreviewWithdrawFrame extends JFrame{
         message2= new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(successWithdraw);
 
         //Placing the elements
         header.setBounds(300, 100, 1000, 100);

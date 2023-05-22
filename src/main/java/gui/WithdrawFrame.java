@@ -1,5 +1,7 @@
 package gui;
 
+import jdk.jshell.execution.Util;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +25,7 @@ public class WithdrawFrame extends JFrame {
         amountLabel = new JLabel("Enter amount");
         amountField = new JTextField();
         continueButton = new JButton("Continue");
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(withdraw);
 
         //Placing the elements
         header.setBounds(500, 100, 1000, 100);

@@ -10,17 +10,18 @@ public class PreviewPaymentFrame extends JFrame {
     private JLabel message2;
     private JLabel balance;
     private JButton returnToMainPageButton;
+    JFrame successPayment;
 
     public PreviewPaymentFrame() {
 
-        JFrame successPayment= new Template();
+        successPayment= new Template();
 
         //Initializing elements
         header = Utils.setHeader("Your payment was made successfully!");
         message = new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
-        returnToMainPageButton = new JButton("Return to the main page");
+        returnToMainPageButton = Utils.returnToMainPageButton(successPayment);
 
 
         //Placing the elements
