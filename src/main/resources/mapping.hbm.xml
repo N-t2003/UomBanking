@@ -32,7 +32,7 @@
 
     </class>
 
-    <class name="Transaction" table="TRANSACTIONS" abstract="true">
+    <class name="Transactions" table="Transactions" abstract="false">
 
         <id name="ID" column="ID">
             <generator class="assigned"/>

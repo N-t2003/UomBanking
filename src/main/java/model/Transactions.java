@@ -6,11 +6,10 @@ import java.util.Random;
 
 
 @Entity
-@Table(name = "TRANSACTIONS")
+@Table(name = "Transactions")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "transaction_type", discriminatorType = DiscriminatorType.STRING)
-@MappedSuperclass
-public abstract class Transaction {
+public class Transactions {
 
     @Id
     @Column(name = "ID", nullable = false, length = 50)
@@ -28,12 +27,12 @@ public abstract class Transaction {
     @Column(name = "ClientUsername", nullable = false, length = 50)
     private String clientusername;                                     // χρησιμοποιείται για να ξέρουμε ποιανού το transaction είναι
 
-    public Transaction() {
+    public Transactions() {
 
     }
 
 
-    public Transaction(String ID, String date, double amount, String description, String clientusername) {
+    public Transactions(String ID, String date, double amount, String description, String clientusername) {
         this.ID = genID();
         this.date = date;
         this.amount = amount;

@@ -1,14 +1,11 @@
 package model;
 
-import jakarta.persistence.ForeignKey;
-import jakarta.persistence.Id;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Withdraw")
 @DiscriminatorValue(value = "Withdraw")
-public class Withdraw extends Transaction{
+public class Withdraw extends Transactions {
 
 
     public Withdraw() {
