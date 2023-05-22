@@ -98,10 +98,10 @@ public class CreateLoanFrame extends JFrame{
                 if(CheckLoanAmount(loanAmount, balance) && (doses>=1 && doses<=12) && loanAmountString.matches("[0-9]+") && dosesString.matches("[0-9]+")){
                     //frame success
                     double totalAmount = CalculateTotalLoanAmount(loanAmount, doses);
-                    /*Date date = new Date();
+                    Date date = new Date();
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-                    String currentDate = formatter.format(date);*/
-                    new LoanSuccessFrame();
+                    String currentDate = formatter.format(date);
+                    new LoanSuccessFrame(currentDate, doses);
                     frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το LoanSuccessFrame και κλείνει το παράθυρο των δανείων.
                 }
 
@@ -155,5 +155,4 @@ public class CreateLoanFrame extends JFrame{
         totalLoanAmount = loanAmount +interests;
         return totalLoanAmount;
     }
-
 }
