@@ -19,7 +19,7 @@ public class LoanDeniedFrame extends JFrame {
 
 
     public LoanDeniedFrame(){
-        header = Utils.setHeader("Your loan request  was denied!");
+        header = Utils.setHeader("Your loan request was denied!");
         header.setBounds(300,100,900,50);
 
         label1 = new JLabel("Ask for a smaller amount or increase your balance");
