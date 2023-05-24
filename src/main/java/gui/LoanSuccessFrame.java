@@ -16,6 +16,7 @@ public class LoanSuccessFrame extends JFrame{
     private JTable table;
     private JScrollPane scrollPane;
     private JButton returnToTheMainPageButton;
+    private JButton receiptButton;
 
     public LoanSuccessFrame(String currentDate, int doses) {
 
@@ -31,7 +32,12 @@ public class LoanSuccessFrame extends JFrame{
         label2.setFont(new Font("Courier", Font.PLAIN, 30));
 
         returnToTheMainPageButton = Utils.returnToMainPageButton(frame);
-        returnToTheMainPageButton.setBounds(485,650,200,35);
+        returnToTheMainPageButton.setBounds(480,650,200,35);
+
+        receiptButton = new JButton("Download the receipt of your loan");
+        receiptButton.setBounds(460,500,250,35);
+
+
 
         Object rowData[][] = new Object[4][2];
         String columnNames[] = { "Amount", "Expiration Date"};
@@ -47,11 +53,11 @@ public class LoanSuccessFrame extends JFrame{
         frame.add(label2);
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.add(returnToTheMainPageButton);
+        frame.add(receiptButton);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    //ΛΕΙΠΕΙ Η ΜΕΘΟΔΟΣ calcDate
     public  String calcDate(String currentDate, int doses){
         int currentDay, currentMonth, currentYear;
         int expirationDay = 0;
