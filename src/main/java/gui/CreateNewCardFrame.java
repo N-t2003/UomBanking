@@ -106,7 +106,7 @@ public class CreateNewCardFrame extends JFrame {
                 else
                 {
                     //Δημιουργείται η κάρτα
-                    Card card = new Card(0,"",0,0);
+                    Card card = new Card(0,"",0,0, "");
                     long cardNum = card.getCardNumber();
                     long cardCVV = card.getCvv();
                     String cardExp = card.getDateExp();

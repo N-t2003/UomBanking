@@ -11,6 +11,7 @@ public class Transfer extends Transactions {
     @Column(name = "IBAN", nullable = false, length = 50)
     private String IBAN;
 
+//  Public no arg constructor is needed for hibernate to work properly!
     public Transfer() {
     }
 
@@ -24,5 +25,13 @@ public class Transfer extends Transactions {
     @Override
     public void printTransaction() {
         super.printTransaction();
+    }
+
+    public String getIBAN() {
+        return IBAN;
+    }
+
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
     }
 }

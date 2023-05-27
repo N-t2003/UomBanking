@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Table(name = "Account")
 public class Account {
 
-    @Column(name = "balance", nullable = false, length = 50)
+    @Column(name = "Balance", nullable = false, length = 50)
     private double balance;
 
     @Id
@@ -18,10 +18,10 @@ public class Account {
     @Column(name = "IBAN", nullable = false, length = 27)
     private String IBAN;
 
-    @Column(name = "clientUsername", nullable = false, length = 27)
+    @Column(name = "ClientUsername", nullable = false, length = 27)
     private String client;
 
-    @Column(name = "costPerTransactiom", nullable = false, length = 10)
+    @Column(name = "CostPerTransactiom", nullable = false, length = 10)
     private int costPerTransaction;
 
 

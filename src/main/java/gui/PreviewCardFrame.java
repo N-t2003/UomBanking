@@ -74,7 +74,7 @@ public class PreviewCardFrame extends JFrame {
 
         carNum = new JLabel(cardNumberBuilder.toString());
 
-        Card aCard = new Card(0, "", 0, 0);
+        Card aCard = new Card(0, "", 0, 0, "");
         this.buildCard(type,cardNum,cardExp,cardName,cardCVV,cardColor); //method for adding card details in panel
 
         returnToMainPageButton = Utils.returnToMainPageButton(prFrame);

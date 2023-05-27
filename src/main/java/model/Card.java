@@ -13,10 +13,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Card{
 
     @Id
-    @Column(name = "cardNumber", nullable = false, length = 20)
+    @Column(name = "CardNumber", nullable = false, length = 20)
     private long cardNumber;
 
-    @Column(name = "dateExpire", nullable = false, length = 10)
+    @Column(name = "DateExpire", nullable = false, length = 10)
     private String dateExp;
 
     @Column(name = "CVV", nullable = false, length = 3)
@@ -25,16 +25,20 @@ public class Card{
     @Column(name = "Type", nullable = false, length = 15)
     private int type;
 
+    @Column(name = "Color", nullable = false, length = 20)
+    private String color;
+
     
     public Card(){
 
     }
     
-    public Card(long cardNumber, String dateExp, long cvv, int type) {
+    public Card(long cardNumber, String dateExp, long cvv, int type, String color) {
         this.cardNumber = genNum();
         this.dateExp = genDateExp();
         this.cvv = genCVV();
-        this.type = type; //δεν εχει υλοποιηθεί
+        this.type = type;
+        this.color = color;
     }
 
     

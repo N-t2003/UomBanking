@@ -38,12 +38,23 @@
             <generator class="assigned"/>
         </id>
 
-        <discriminator column="transaction_type" type="string"/>
+        <discriminator column="TransactionType" type="string"/>
 
-        <property name="date" column="date"/>
-        <property name="amount" column="amount"/>
-        <property name="description" column="description"/>
+        <property name="date" column="Date"/>
+        <property name="amount" column="Amount"/>
+        <property name="description" column="Description"/>
         <property name="clientusername" column="ClientUsername"/>
+
+        <subclass name="Deposit" discriminator-value="Deposit">
+        </subclass>
+
+        <subclass name="Transfer" discriminator-value="Transfer">
+            <property name="IBAN" column="IBAN"/>
+        </subclass>
+
+        <subclass name="Payment" discriminator-value="Payment">
+            <property name="type" column="Type"/>
+        </subclass>
 
         <subclass name="Withdraw" discriminator-value="Withdraw">
         </subclass>

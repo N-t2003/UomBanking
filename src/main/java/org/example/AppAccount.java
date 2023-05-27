@@ -4,10 +4,8 @@ package org.example;
  * By the software team of UOMSystemX
  *
  */
-import model.Withdraw;
+import model.*;
 import org.hibernate.*;
-import model.Account;
-import model.Transactions;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -26,8 +24,10 @@ public class AppAccount {
 
 //        User user1 = new User();
         Account acc1 = new Account(100.2,"","","Astakos");
-        Transactions tr1 = new Transactions("", "", 0, "", "");
         Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
+        Transfer transfer = new Transfer("", "22", 22, "22", "22", "22");
+        Payment payment = new Payment("", "22", 22, "22", "22", "supermarket");
+        Deposit deposit = new Deposit("", "22", 22, "22", "22");
 
 //        Client cl1 = new Client("1", "1", "1", "1",
 //                "1", "232", "1");
@@ -36,13 +36,12 @@ public class AppAccount {
 //        user1 = (User) session.get(User.class, 23445);
 //        System.out.println(user1);
 
-//      Adding columns to the database
-        //user2.setEmail("dimsparagis@icloud.com");
-
 //      Saving the user
         session.save(acc1);
-        session.save(tr1);
         session.save(withdraw);
+        session.save(transfer);
+        session.save(payment);
+        session.save(deposit);
         session.getTransaction().commit();
         session.close();
 
