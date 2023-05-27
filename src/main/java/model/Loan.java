@@ -1,11 +1,26 @@
 package model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Loan")
 public class Loan {
+
+    @Column(name = "LoanAmount", nullable = false, length = 20)
     private double loanAmount;
     private String dateExp; //δεν χρησιμοποιήθηκε κάπου με βάση το word
     private int doses;
 
+    @Id
+    @Column(name = "ID", nullable = false, length = 20)
+    private String id;
     
+    public Loan() {
+    }
+
     public Loan(double loanAmount, String dateExp, int doses) {
         this.loanAmount = loanAmount;
         this.dateExp = dateExp;

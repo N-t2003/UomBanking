@@ -8,20 +8,21 @@ import java.util.Random;
 @Entity
 @Table(name = "Transactions")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "transaction_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "TransactionType", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue(value = "Transactions")
 public class Transactions {
 
     @Id
     @Column(name = "ID", nullable = false, length = 50)
     private String ID;
 
-    @Column(name = "DATE", nullable = false, length = 50)
+    @Column(name = "Date", nullable = false, length = 50)
     private String date;
 
-    @Column(name = "AMOUNT", nullable = false, length = 50)
+    @Column(name = "Amount", nullable = false, length = 50)
     private double amount;
 
-    @Column(name = "DESCRIPTION", nullable = false, length = 50)
+    @Column(name = "Description", nullable = false, length = 50)
     private String description;
 
     @Column(name = "ClientUsername", nullable = false, length = 50)
