@@ -16,11 +16,11 @@ public class Card{
     @Column(name = "CardNumber", nullable = false, length = 20)
     private long cardNumber;
 
-    @Column(name = "DateExpire", nullable = false, length = 10)
-    private String dateExp;
+    @Column(name = "ExpirationDate", nullable = false, length = 10)
+    private String expirationDate;
 
     @Column(name = "CVV", nullable = false, length = 3)
-    private long cvv;
+    private int cvv;
 
     @Column(name = "Type", nullable = false, length = 15)
     private int type;
@@ -33,9 +33,9 @@ public class Card{
 
     }
     
-    public Card(long cardNumber, String dateExp, long cvv, int type, String color) {
+    public Card(long cardNumber, String dateExp, int cvv, int type, String color) {
         this.cardNumber = genNum();
-        this.dateExp = genDateExp();
+        this.expirationDate = genDateExp();
         this.cvv = genCVV();
         this.type = type;
         this.color = color;
@@ -52,13 +52,12 @@ public class Card{
         return random;
     }
 
-    public long genCVV(){
-        long smallest = 100L;
-        long biggest =  999L;
+    public int genCVV(){
+        int smallest = 100;
+        int biggest =  999;
 
         // return a long between smallest and biggest (+1 to include biggest as well with the upper bound)
-         long random = ThreadLocalRandom.current().nextLong(smallest, biggest+1);
-        return random;
+        return (int) ThreadLocalRandom.current().nextLong(smallest, biggest+1);
     }
 
     public String genDateExp(){
@@ -83,19 +82,19 @@ public class Card{
     }
 
     
-    public long getCvv() {
+    public int getCvv() {
         return cvv;
     }
 
-    public void setCvv(long cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
-    public String getDateExp() {
-        return dateExp;
+    public String getExpirationDate() {
+        return expirationDate;
     }
-    public void setDateExp(String dateExp) {
-        this.dateExp = dateExp;
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
     }
     
     public int getType() {
@@ -109,26 +108,12 @@ public class Card{
         return "This is the number of your Card: "+cardNumber+"\n"+"This is you CVV: "+cvv+"\n"+"Your Expiration Date is: "+genDateExp();
     }
 
-    
 
-    
+    public String getColor() {
+        return color;
+    }
 
-    
-
-    
-
-    
-
-    
-
-    
-
-
-
-    
-
-
-
-    
-
+    public void setColor(String color) {
+        this.color = color;
+    }
 }

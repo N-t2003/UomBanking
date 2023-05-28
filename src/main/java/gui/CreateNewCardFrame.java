@@ -109,7 +109,7 @@ public class CreateNewCardFrame extends JFrame {
                     Card card = new Card(0,"",0,0, "");
                     long cardNum = card.getCardNumber();
                     long cardCVV = card.getCvv();
-                    String cardExp = card.getDateExp();
+                    String cardExp = card.getExpirationDate();
                     String cardName  = nameText.getText();
                     String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText(); //παίρνω επιλογή απο τύπο κάρτας
 

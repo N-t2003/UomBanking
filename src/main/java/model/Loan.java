@@ -5,26 +5,37 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Random;
+
 @Entity
 @Table(name = "Loan")
 public class Loan {
 
     @Column(name = "LoanAmount", nullable = false, length = 20)
     private double loanAmount;
+
+    @Column(name = "ExpirationDate", nullable = false, length = 20)
     private String dateExp; //δεν χρησιμοποιήθηκε κάπου με βάση το word
+
+    @Column(name = "Doses", nullable = false, length = 20)
     private int doses;
 
     @Id
     @Column(name = "ID", nullable = false, length = 20)
     private String id;
-    
+
+    @Column(name = "AccountID", nullable = false, length = 50)
+    private String accountID; // χρησιμοποιείται για να ξέρουμε ποιανού το loan είναι
+
     public Loan() {
     }
 
-    public Loan(double loanAmount, String dateExp, int doses) {
+    public Loan(String accountID, double loanAmount, String dateExp, int doses, String id) {
+        this.accountID = accountID;
         this.loanAmount = loanAmount;
         this.dateExp = dateExp;
         this.doses = doses;
+        this.id = genID();
     }
 
     public double loanDose(double loanAmount,int doses){
@@ -35,7 +46,15 @@ public class Loan {
         return payableDose;
     }
 
-    public void calculateNewLoanAmount(double loanAmaount,int doses,double balance, Account a1){
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
+    }
+
+    public void calculateNewLoanAmount(double loanAmaount, int doses, double balance, Account a1){
         double pDose= loanDose(loanAmount, doses);
         double newLoanAmount;
         a1.setBalance(calculateNewBalanace(balance,pDose)); 
@@ -48,6 +67,19 @@ public class Loan {
     public double calculateNewBalanace(double balance,double payableDose){
             balance=balance-payableDose;  //ipologizo to kainourgio balance
             return balance;
+    }
+
+    public String genID(){
+        //Δημιουργία ενός τυχαίου ID με 8 χαρακτήρες π.χ. kHFujh%4
+        String characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        int length = 8;
+        Random random = new Random();
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            builder.append(characters.charAt(index));
+        }
+        return builder.toString();
     }
 
 
@@ -76,9 +108,16 @@ public class Loan {
         this.doses = doses;
     }
 
-    
     public String toString(){
         return "To poso twn dosewn pou apomenei: "+doses;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
 }

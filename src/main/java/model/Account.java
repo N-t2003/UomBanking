@@ -63,8 +63,6 @@ public class Account {
             builder.append(characters.charAt(index));
         }
         return builder.toString();
-
-
     }
 
     public String genIBAN(){
@@ -84,7 +82,6 @@ public class Account {
         }
 
         return builder.toString();
-
     }
 
 
