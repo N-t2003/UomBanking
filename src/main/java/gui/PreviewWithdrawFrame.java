@@ -10,6 +10,7 @@ public class PreviewWithdrawFrame extends JFrame{
     private JLabel message2;
     private JLabel balance;
     private JPanel innerPanel;
+    private JButton receiptButton;
     private JButton returnToMainPageButton;
     JFrame successWithdraw;
     public PreviewWithdrawFrame(){
@@ -21,6 +22,7 @@ public class PreviewWithdrawFrame extends JFrame{
         message2= new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
+        receiptButton = new JButton("Download receipt");
         returnToMainPageButton = Utils.returnToMainPageButton(successWithdraw);
 
         //Placing the elements
@@ -37,7 +39,9 @@ public class PreviewWithdrawFrame extends JFrame{
 
         balance.setFont(new Font("Courier", Font.PLAIN, 50));
 
-        returnToMainPageButton.setBounds(500,550,200,40);
+        receiptButton.setBounds(380,550,200,40);
+
+        returnToMainPageButton.setBounds(630,550,200,40);
 
         //Adding the elements
         innerPanel.add(message2);
@@ -45,6 +49,7 @@ public class PreviewWithdrawFrame extends JFrame{
         successWithdraw.add(header);
         successWithdraw.add(message);
         successWithdraw.add(innerPanel);
+        successWithdraw.add(receiptButton);
         successWithdraw.add(returnToMainPageButton);
 
         successWithdraw.setVisible(true);

@@ -11,6 +11,7 @@ public class PreviewDepositFrame extends JFrame {
     private JLabel balance;
     private JButton returnToMainPageButton;
     JFrame successDeposit;
+    private JButton receiptButton;
 
     public PreviewDepositFrame(){
 
@@ -23,6 +24,7 @@ public class PreviewDepositFrame extends JFrame {
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
         returnToMainPageButton = Utils.returnToMainPageButton(successDeposit);
+        receiptButton = new JButton("Download receipt");
 
 
         //Placing the elements
@@ -38,8 +40,9 @@ public class PreviewDepositFrame extends JFrame {
         message2.setFont(new Font("Courier", Font.PLAIN, 25));
 
         balance.setFont(new Font("Courier", Font.PLAIN, 50));
+        receiptButton.setBounds(380,550,200,40);
 
-        returnToMainPageButton.setBounds(500,550,200,40);
+        returnToMainPageButton.setBounds(630,550,200,40);
 
         //Adding the elements
         innerPanel.add(message2);
@@ -47,6 +50,7 @@ public class PreviewDepositFrame extends JFrame {
         successDeposit.add(header);
         successDeposit.add(message);
         successDeposit.add(innerPanel);
+        successDeposit.add(receiptButton);
         successDeposit.add(returnToMainPageButton);
 
         successDeposit.setVisible(true);

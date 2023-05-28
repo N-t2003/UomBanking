@@ -10,6 +10,7 @@ public class PreviewTransferFrame {
     private JLabel balance;
     private JPanel innerPanel;
     private JButton returnToMainPageButton;
+    private JButton receiptButton;
     JFrame successTransfer;
 
     public PreviewTransferFrame(){
@@ -21,6 +22,7 @@ public class PreviewTransferFrame {
         message2= new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
+        receiptButton = new JButton("Download receipt");
         returnToMainPageButton = Utils.returnToMainPageButton(successTransfer);
 
         //Placing the elements
@@ -37,7 +39,9 @@ public class PreviewTransferFrame {
 
         balance.setFont(new Font("Courier", Font.PLAIN, 50));
 
-        returnToMainPageButton.setBounds(500,550,200,40);
+        receiptButton.setBounds(380,550,200,40);
+
+        returnToMainPageButton.setBounds(630,550,200,40);
 
 
         //Adding the elements
@@ -46,6 +50,7 @@ public class PreviewTransferFrame {
         successTransfer.add(header);
         successTransfer.add(message);
         successTransfer.add(innerPanel);
+        successTransfer.add(receiptButton);
         successTransfer.add(returnToMainPageButton);
 
 
