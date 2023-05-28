@@ -5,7 +5,8 @@
 
 <hibernate-mapping package="model">
 
-    <class name="Account" table="ACCOUNT">
+    <!-- Account Mapping   -->
+    <class name="Account" table="Account">
 
         <id name="ID" column="ID" type="string">
             <generator class="assigned"/>
@@ -17,6 +18,7 @@
 
     </class>
 
+    <!-- Client Mapping   -->
     <class name="Client" table="Client">
 
         <id name="username" column="Username" type="string">
@@ -32,6 +34,34 @@
 
     </class>
 
+    <!-- Loan Mapping-->
+    <class name="Loan" table="Loan">
+
+        <id name="id" column="ID" type="string">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="accountID" column="AccountID" type="string"/>
+        <property name="loanAmount" column="LoanAmount" type="double"/>
+        <property name="dateExp" column="ExpirationDate" type="string"/>
+        <property name="doses" column="Doses" type="int"/>
+
+    </class>
+
+    <!-- Card Mapping-->
+    <class name="Card" table="Card">
+
+        <id name="cardNumber" column="CardNumber" type="long">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="type" column="Type" type="int"/>
+        <property name="expirationDate" column="ExpirationDate" type="string"/>
+        <property name="cvv" column="CVV" type="int"/>
+        <property name="color" column="Color" type="string"/>
+    </class>
+
+    <!--Transactions Mapping-->
     <class name="Transactions" table="Transactions" abstract="false">
 
         <id name="ID" column="ID">
