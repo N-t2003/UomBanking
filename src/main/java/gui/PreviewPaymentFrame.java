@@ -10,6 +10,7 @@ public class PreviewPaymentFrame extends JFrame {
     private JLabel message2;
     private JLabel balance;
     private JButton returnToMainPageButton;
+    private JButton receiptButton;
     JFrame successPayment;
 
     public PreviewPaymentFrame() {
@@ -21,6 +22,7 @@ public class PreviewPaymentFrame extends JFrame {
         message = new JLabel("Your new account balance");
         balance = new JLabel("1500$");
         innerPanel = new JPanel();
+        receiptButton = new JButton("Download receipt");
         returnToMainPageButton = Utils.returnToMainPageButton(successPayment);
 
 
@@ -35,13 +37,16 @@ public class PreviewPaymentFrame extends JFrame {
 
         balance.setFont(new Font("Courier", Font.PLAIN, 50));
 
-        returnToMainPageButton.setBounds(500, 550, 200, 35);
+        receiptButton.setBounds(380,550,200,40);
+
+        returnToMainPageButton.setBounds(630,550,200,40);
 
         //Adding the elements
         innerPanel.add(message);
         innerPanel.add(balance);
         successPayment.add(header);
         successPayment.add(innerPanel);
+        successPayment.add(receiptButton);
         successPayment.add(returnToMainPageButton);
 
         successPayment.setVisible(true);
