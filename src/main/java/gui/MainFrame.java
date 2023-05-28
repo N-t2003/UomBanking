@@ -1,5 +1,7 @@
 package gui;
 
+import model.Account;
+import model.Client;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -21,7 +23,9 @@ public class MainFrame extends JFrame {
     private JButton loanButton;
     private JButton createCardButton;
 
-    public MainFrame(){
+    private Account account;
+
+    public MainFrame(Client client){
         JFrame mainFrame = new Template();
 
 //      Initializing components
@@ -52,10 +56,13 @@ public class MainFrame extends JFrame {
         createCardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreateNewCardFrame();
+                new CreateNewCardFrame(account.getID());
                 mainFrame.dispose();
             }
         });
+
+//      Creating account
+        account = new Account(0, "", "", client.getUsername());
 
 //      Adding components to the frame
         mainFrame.add(header);

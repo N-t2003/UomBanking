@@ -36,7 +36,7 @@ public class PreviewCardFrame extends JFrame {
 
 
 
-    public PreviewCardFrame(String type, long cardNum, String cardExp, String cardName, long cardCVV, Color cardColor) {
+    public PreviewCardFrame(String accountID, String type, long cardNum, String cardExp, String cardName, int cardCVV, Color cardColor) {
 
         //Arxikopoihsh metavlhtwn
         prFrame = new Template();
@@ -74,7 +74,7 @@ public class PreviewCardFrame extends JFrame {
 
         carNum = new JLabel(cardNumberBuilder.toString());
 
-        Card aCard = new Card(0, "", 0, 0, "");
+        Card aCard = new Card(accountID,cardNum, cardExp, cardCVV, type, cardColor.toString());
         this.buildCard(type,cardNum,cardExp,cardName,cardCVV,cardColor); //method for adding card details in panel
 
         returnToMainPageButton = Utils.returnToMainPageButton(prFrame);

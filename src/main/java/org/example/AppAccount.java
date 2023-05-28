@@ -29,7 +29,7 @@ public class AppAccount {
         Payment payment = new Payment("", "22", 22, "22", "22", "supermarket");
         Deposit deposit = new Deposit("", "22", 22, "22", "22");
         Loan loan = new Loan(acc1.getID(),10, "22", 22, "");
-        Card card = new Card(0, "22", 123, 1, "White");
+//        Card card = new Card(0, "22", 123, 1, "White");
 
 //        Client cl1 = new Client("1", "1", "1", "1",
 //                "1", "232", "1");
@@ -45,7 +45,7 @@ public class AppAccount {
         session.save(payment);
         session.save(deposit);
         session.save(loan);
-        session.save(card);
+//        session.save(card);
         session.getTransaction().commit();
         session.close();
 

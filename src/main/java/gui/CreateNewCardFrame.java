@@ -33,7 +33,7 @@ public class CreateNewCardFrame extends JFrame {
     String pin2;
     Color color;
 
-    public CreateNewCardFrame() {
+    public CreateNewCardFrame(String accountID) {
         this.setLayout(null);
 
         fr = new Template();
@@ -106,9 +106,9 @@ public class CreateNewCardFrame extends JFrame {
                 else
                 {
                     //Δημιουργείται η κάρτα
-                    Card card = new Card(0,"",0,0, "");
+                    Card card = new Card(accountID,0,"",0,"MasterCard", "");
                     long cardNum = card.getCardNumber();
-                    long cardCVV = card.getCvv();
+                    int cardCVV = card.getCvv();
                     String cardExp = card.getExpirationDate();
                     String cardName  = nameText.getText();
                     String typedText = ((JTextField)cb.getEditor().getEditorComponent()).getText(); //παίρνω επιλογή απο τύπο κάρτας
@@ -120,7 +120,7 @@ public class CreateNewCardFrame extends JFrame {
 
                     else {
                         fr.dispose();
-                        new PreviewCardFrame(typedText, cardNum, cardExp, cardName, cardCVV, color);
+                        new PreviewCardFrame(accountID ,typedText, cardNum, cardExp, cardName, cardCVV, color);
                     }
                 }
             }

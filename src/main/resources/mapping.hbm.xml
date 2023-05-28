@@ -29,7 +29,6 @@
         <property name="lastName" column="LastName" type="string"/>
         <property name="phoneNumber" column="PhoneNumber" type="string"/>
         <property name="email" column="Email" type="string"/>
-        <property name="address" column="Address" type="string"/>
         <property name="password" column="Password" type="string"/>
 
     </class>
