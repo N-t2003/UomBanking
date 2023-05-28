@@ -1,5 +1,7 @@
 package gui;
 
+import model.Client;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -9,12 +11,17 @@ public class CreateAccountPanel extends JPanel {
     private JCheckBox showPassword;
     private JPasswordField passwordField;
     private JPasswordField passwordField2;
-    private JButton signInButton;
     private JLabel message;
     private JLabel checkLabel;
     private JComboBox costPerTransaction;
     private JTextField phoneNumber;
     private JTextField email;
+
+    private JTextField username;
+
+    public JTextField getUsername() {
+        return username;
+    }
 
     public JTextField getPhoneNumber() {
         return this.phoneNumber;
@@ -32,14 +39,32 @@ public class CreateAccountPanel extends JPanel {
         return this.passwordField2;
     }
 
+    public JComboBox getCostPerTransaction() {
+        return costPerTransaction;
+    }
+
+    public JTextField getFirstName() {
+        return firstName;
+    }
+
+    public JTextField getLastName() {
+        return lastName;
+    }
+
+    private JTextField firstName;
+    private JTextField lastName;
+
+    private Client client;
+
+
     public CreateAccountPanel() {
 
         showPassword = new JCheckBox("Show Password");
         passwordField = new JPasswordField(10);
         passwordField2 = new JPasswordField(10);
-        signInButton = new JButton("Sign In");
         message = new JLabel("Make sure to use a strong password");
         checkLabel = new JLabel();
+        username = new JTextField(10);
 
         costPerTransaction = new JComboBox();
 
@@ -91,16 +116,6 @@ public class CreateAccountPanel extends JPanel {
             }
         });
 
-
-//      Setting up signInButton
-        signInButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //checkData();
-                new MainFrame();
-            }
-        });
-
 //      Basic setup for the panel
         setBounds(350, 200, 500, 500);
         setBackground(Color.LIGHT_GRAY);
@@ -129,7 +144,7 @@ public class CreateAccountPanel extends JPanel {
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
-        add(new JTextField(10), gc);
+        add(firstName = new JTextField(10), gc);
 
 //      Second row-First column
         gc.gridy++;
@@ -145,7 +160,7 @@ public class CreateAccountPanel extends JPanel {
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
-        add(new JTextField(10), gc);
+        add(lastName = new JTextField(10), gc);
 
 //      Third row-First column
         gc.gridy++;
@@ -176,6 +191,19 @@ public class CreateAccountPanel extends JPanel {
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0, 0, 0, 0);
         add(email = new JTextField(10), gc);
+
+        gc.gridy++;
+        gc.gridx = 0;
+        gc.weighty = 0.1;
+        gc.weightx = 1;
+        gc.anchor = GridBagConstraints.FIRST_LINE_END;
+        gc.insets = new Insets(0, 0, 0, 0);
+        add(new JLabel("Username"), gc);
+
+        gc.gridx++;
+        gc.anchor = GridBagConstraints.FIRST_LINE_START;
+        gc.insets = new Insets(0, 0, 0, 0);
+        add(username, gc);
 
 //      Fifth row-First column
         gc.gridy++;

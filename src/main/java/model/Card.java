@@ -23,17 +23,21 @@ public class Card{
     private int cvv;
 
     @Column(name = "Type", nullable = false, length = 15)
-    private int type;
+    private String type;
 
     @Column(name = "Color", nullable = false, length = 20)
     private String color;
+
+    @Column(name = "AccountID", nullable = false, length = 20)
+    private String accountID;
 
     
     public Card(){
 
     }
     
-    public Card(long cardNumber, String dateExp, int cvv, int type, String color) {
+    public Card(String accountID, long cardNumber, String dateExp, int cvv, String type, String color) {
+        this.accountID = accountID;
         this.cardNumber = genNum();
         this.expirationDate = genDateExp();
         this.cvv = genCVV();
@@ -97,10 +101,10 @@ public class Card{
         this.expirationDate = expirationDate;
     }
     
-    public int getType() {
+    public String getType() {
         return type;
     }
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 

@@ -1,5 +1,6 @@
 package gui;
 
+import model.Client;
 import model.Main;
 
 import javax.swing.*;
@@ -15,6 +16,8 @@ public class WelcomePage extends JFrame {
     private JButton createAccountButton;
     private JLabel message;
     public JFrame welcomePage;
+
+    private Client client;
 
      public WelcomePage(){
          welcomePage = new TemplateNotLoggedIn();
@@ -58,6 +61,8 @@ public class WelcomePage extends JFrame {
          welcomePage.add(createAccountButton);
          welcomePage.add(message);
 
+         client = new Client();
+
 //       Basic setup for the frame
          welcomePage.setVisible(true);
          welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,7 +101,7 @@ public class WelcomePage extends JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     welcomePage.dispose();
-                    new MainFrame();
+                    new MainFrame(client);
                 }
             });
 

@@ -60,7 +60,7 @@ public class LoanFrame extends JFrame {
         ReturnToTheMainPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MainFrame();
+//                new MainFrame();
             }
         });
 

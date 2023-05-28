@@ -31,9 +31,6 @@ public class Client {
     @Column(name = "Email", nullable = false, length = 50)
     private String email;
 
-    @Column(name = "Address", nullable = false, length = 50)
-    private String address;
-
     @Id
     @Column(name = "Username", nullable = false, length = 50)
     private String username;
@@ -45,16 +42,14 @@ public class Client {
     }
 
 
-    public Client(String firstName, String lastName, String phoneNumber, String email,
-                  String address, String username, String password) {
+    public Client(String firstName, String lastName, String phoneNumber, String email
+            , String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.address = address;
         this.username = username;
         this.password = password;
-
     }
 
 
@@ -120,10 +115,6 @@ public class Client {
         return email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -150,10 +141,6 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public void setPassword(String password) {

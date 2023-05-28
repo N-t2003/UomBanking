@@ -1,5 +1,6 @@
 package gui;
 
+import model.Account;
 import model.Client;
 
 import javax.swing.*;
@@ -17,6 +18,10 @@ public class CreateAccount extends JFrame {
     private JButton createAccountButton;
     private JLabel loginLabel;
     private JButton loginButton;
+
+    public Client client;
+
+    private Account account;
 
     public CreateAccount() {
 //      Setting up the template
@@ -52,7 +57,7 @@ public class CreateAccount extends JFrame {
 
                 if(checkData(email, phoneNumber, password, confirmPassword)) {
                     createAccount.dispose();
-                    new MainFrame();
+                    new MainFrame(client);
                 }
             }
         });
@@ -71,6 +76,12 @@ public class CreateAccount extends JFrame {
                 new WelcomePage();
             }
         });
+
+//      Creating the client
+        client = new Client(infoPanel.getFirstName().getText(), infoPanel.getLastName().getText(), infoPanel.getPhoneNumber().getText(),
+                infoPanel.getEmail().getText(), infoPanel.getUsername().getText(), infoPanel.getPasswordField().getText());
+
+
 
 
 //      Adding components to the frame

@@ -25,8 +25,8 @@ public class AppClient {
 //      Creating a new user class
         User user2 = new User();
         User user1 = new User();
-        Client cl1 = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
-                "akala den menw", "malaka", "tsapou");
+//        Client cl1 = new Client("Skour", "Akis", "6097846767", "giannakiss@gmail.com",
+//                "akala den menw", "malaka", "tsapou");
 
 
 //      Fetching a user from the database
@@ -37,7 +37,7 @@ public class AppClient {
         //user2.setEmail("dimsparagis@icloud.com");
 
 //      Saving the user
-        session.save(cl1);
+//        session.save(cl1);
         session.getTransaction().commit();
         session.close();
 
