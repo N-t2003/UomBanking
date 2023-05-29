@@ -26,7 +26,7 @@ public class SpendCategoriesFrame extends JFrame {
         ReturnToTheMainPage = new JButton("Return to the main page");
 
         String[] Columns = new String[]{"Transaction", "Amount"};
-        String[][] SCInfo = new String[][]{{"Supermarket","190.80$"},{"Pharmacy","380.76$"},{"Transport","100$"}};
+        String[][] SCInfo = new String[][]{{"Supermarket","190.70$"},{"Pharmacy","380.76$"},{"Transport","100$"}};
 
         SCTable = new JTable(SCInfo,Columns);
         JScrollPane jp = new JScrollPane(SCTable);
