@@ -1,6 +1,6 @@
 package org.example;
 
-import model.Account;
+import model.Card;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -8,10 +8,11 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class AccountDB {
+public class CardDB {
 
-//  Save an Account
-    public static void saveAccount(Account account){
+
+    //  Save Card
+    public static void saveCard(Card card){
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -22,14 +23,14 @@ public class AccountDB {
         Transaction tx = session.beginTransaction();
 
 //      Saving and closing session
-        session.save(account);
+        session.save(card);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Account saved");
+        System.out.println("Card saved");
     }
 
-//  Update an Account
-    public static void updateAccount(Account account){
+    //  Update Card
+    public static void updateCard(Card card){
 
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
@@ -41,14 +42,14 @@ public class AccountDB {
         Transaction tx = session.beginTransaction();
 
 //      Saving and closing session
-        session.saveOrUpdate(account);
+        session.saveOrUpdate(card);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Account updated");
+        System.out.println("Card updated");
     }
 
-//  Fetch an Account
-    public static Account fetchAccount(int ID){
+    //  Fetch Card
+    public static Card fetchCard(long ID){
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -57,13 +58,13 @@ public class AccountDB {
 //      Beginning the transaction with the database
         Transaction tx = session.beginTransaction();
 
-//      Fetching the account
-        Account account = new Account();
-        account = (Account) session.get(Account.class, ID);
+//      Fetching Card
+        Card card = new Card();
+        card = (Card) session.get(Card.class, ID);
 
 //      Saving and closing session
         session.getTransaction().commit();
         session.close();
-        return account;
+        return card;
     }
 }

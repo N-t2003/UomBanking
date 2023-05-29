@@ -54,10 +54,12 @@
             <generator class="assigned"/>
         </id>
 
-        <property name="type" column="Type" type="int"/>
+        <property name="accountID" column="AccountID" type="string"/>
         <property name="expirationDate" column="ExpirationDate" type="string"/>
         <property name="cvv" column="CVV" type="int"/>
+        <property name="type" column="Type" type="string"/>
         <property name="color" column="Color" type="string"/>
+
     </class>
 
     <!--Transactions Mapping-->

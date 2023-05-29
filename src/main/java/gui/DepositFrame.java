@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DepositFrame extends JFrame {
+public class  DepositFrame extends JFrame {
     JLabel header;
     JLabel line;
     JLabel amountLabel;
