@@ -41,14 +41,11 @@ public class SpendCategoriesFrame extends JFrame {
         message.setBounds(480,140,600,80);
         message.setFont(new Font("Courier",Font.PLAIN,15));
 
+
+        ReturnToTheMainPage = Utils.returnToMainPageButton(SpendCategories);
         ReturnToTheMainPage.setBounds(530,440,180,30);
 
-        ReturnToTheMainPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                new MainFrame();
-            }
-        });
+
 
         jp.setBounds(440,280,350,130);
 
