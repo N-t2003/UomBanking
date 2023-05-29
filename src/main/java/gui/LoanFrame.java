@@ -19,6 +19,8 @@ public class LoanFrame extends JFrame {
 
     private JTable LoanTable;
 
+    private JButton loanReceipt;
+
 
 
     public LoanFrame(){
@@ -30,6 +32,7 @@ public class LoanFrame extends JFrame {
         message1 = new JLabel("Your loans");
         NewLoan = new JButton("New Loan");
         ReturnToTheMainPage = new JButton("Return to the main page");
+        loanReceipt = new JButton("Download loan receipt");
 
 
         String[] LoansColumns = new String[]{"Amount", "Expiration Date"};
@@ -51,23 +54,21 @@ public class LoanFrame extends JFrame {
         message1.setBounds(520,300,500,60);
         message1.setFont(new Font("Courier", Font.PLAIN,30));
 
+        ReturnToTheMainPage = Utils.returnToMainPageButton(Loans);
         ReturnToTheMainPage.setBounds(1000,710,180,30);
+
+        loanReceipt.setBounds(480,680,200,30);
 
         NewLoan.setBounds(500,580,150,30);
 
         jp.setBounds(440,360,300,130);
 
-        ReturnToTheMainPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                new MainFrame();
-            }
-        });
+
 
         NewLoan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new CreateLoanFrame();
             }
         });
 
@@ -76,6 +77,7 @@ public class LoanFrame extends JFrame {
         Loans.add(message1);
         Loans.add(ReturnToTheMainPage);
         Loans.add(NewLoan);
+        Loans.add(loanReceipt);
         Loans.add(jp);
         Loans.setVisible(true);
         Loans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

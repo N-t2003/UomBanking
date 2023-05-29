@@ -26,7 +26,7 @@ public class SpendCategoriesFrame extends JFrame {
         ReturnToTheMainPage = new JButton("Return to the main page");
 
         String[] Columns = new String[]{"Transaction", "Amount"};
-        String[][] SCInfo = new String[][]{{"Supermarket","190.80$"},{"Pharmacy","380.76$"},{"Transport","100$"}};
+        String[][] SCInfo = new String[][]{{"Supermarket","190.70$"},{"Pharmacy","380.76$"},{"Transport","100$"}};
 
         SCTable = new JTable(SCInfo,Columns);
         JScrollPane jp = new JScrollPane(SCTable);
@@ -41,14 +41,11 @@ public class SpendCategoriesFrame extends JFrame {
         message.setBounds(480,140,600,80);
         message.setFont(new Font("Courier",Font.PLAIN,15));
 
+
+        ReturnToTheMainPage = Utils.returnToMainPageButton(SpendCategories);
         ReturnToTheMainPage.setBounds(530,440,180,30);
 
-        ReturnToTheMainPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                new MainFrame();
-            }
-        });
+
 
         jp.setBounds(440,280,350,130);
 
