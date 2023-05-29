@@ -11,13 +11,13 @@ import org.hibernate.cfg.AnnotationConfiguration;
 public class AccountDB {
 
 //  Save an Account
-    public void saveAccount(Account account){
+    public static void saveAccount(Account account){
 //      Setting up the transaction between the app and the database
         AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession(); //using the session to fetch data from the database
-        
+
 //      Beginning the transaction with the database
         Transaction tx = session.beginTransaction();
 
@@ -29,7 +29,7 @@ public class AccountDB {
     }
 
 //  Update an Account
-    public void updateAccount(Account account){
+    public static void updateAccount(Account account){
 
 //      Setting up the transaction between the app and the database
         AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
@@ -48,7 +48,7 @@ public class AccountDB {
     }
 
 //  Fetch an Account
-    public Account fetchAccount(int ID){
+    public static Account fetchAccount(int ID){
 //      Setting up the transaction between the app and the database
         AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
