@@ -49,7 +49,7 @@ public class CardDB {
     }
 
     //  Fetch Card
-    public static Card fetchCard(int ID){
+    public static Card fetchCard(long ID){
 //      Setting up the transaction between the app and the database
         AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

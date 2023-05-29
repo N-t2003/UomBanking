@@ -7,12 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
-// ΔΕΝ ΕΧΕΙ ΥΛΟΠΟΙΗΘΕΙ Ο ΤΥΠΟΣ ΤΗΣ ΚΑΡΤΑΣ
 @Entity
 @Table(name = "Card")
 public class Card{
-
-
 
     @Id
     @Column(name = "CardNumber", nullable = false, length = 20)
@@ -131,4 +128,6 @@ public class Card{
     public void setColor(String color) {
         this.color = color;
     }
+
+
 }
