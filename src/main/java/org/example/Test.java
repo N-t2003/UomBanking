@@ -3,11 +3,12 @@ package org.example;
 import model.Account;
 
 import model.Card;
+import model.Client;
 
 
 public class Test {
     public static void main(String[] args) {
-         Card card = new Card("",0,"",0,"mastercard","");
-         CardDB.saveCard(card);
+         Client aClient = new Client("","","","","mastercard","DVDFD");
+         ClientDB.saveClient(aClient);
     }
 }

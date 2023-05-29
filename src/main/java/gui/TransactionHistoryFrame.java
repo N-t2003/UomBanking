@@ -11,13 +11,13 @@ public class TransactionHistoryFrame extends JFrame {
     private JLabel header;
     private JLabel subheader;
     private JFrame frame;
-    private JButton showTransactionButton;
+    private JButton downloadTranButton;
 
 
     public TransactionHistoryFrame(){
 
         frame = new Template();
-        showTransactionButton= new JButton("Show Transaction History");
+        downloadTranButton= new JButton("Download Transaction History");
         header = Utils.setHeader("Transaction history");
         subheader = new JLabel("See what you spend in detail");
 
@@ -30,7 +30,7 @@ public class TransactionHistoryFrame extends JFrame {
         sc.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         jt.setForeground(Color.BLACK);
 
-        showTransactionButton.addActionListener(new ActionListener() {
+        downloadTranButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
@@ -38,18 +38,18 @@ public class TransactionHistoryFrame extends JFrame {
         });
 
         returnToMainPageButton = Utils.returnToMainPageButton(frame);
-        returnToMainPageButton.setBounds(470,500,200,30);
+        returnToMainPageButton.setBounds(485,480,200,30);
 
 
         header.setBounds(400,100,1000,100);
         subheader.setBounds(500,140,1500,100);
         sc.setBounds(320,250,500,100);
-        showTransactionButton.setBounds(470,400,200,30);
+        downloadTranButton.setBounds(470,400,230,30);
 
         frame.add(header);
         frame.add(subheader);
         frame.add(sc);
-        frame.add(showTransactionButton);
+        frame.add(downloadTranButton);
         frame.add(returnToMainPageButton);
 
 
