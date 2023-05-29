@@ -8,12 +8,12 @@ import model.*;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 
 public class AppAccount {
     public static void main(String[] args) {
 //      Setting up the transaction between the app and the database
-        AnnotationConfiguration configuration = new AnnotationConfiguration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
+        Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession(); //using the session to fetch data from the database(line 31)

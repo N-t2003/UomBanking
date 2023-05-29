@@ -38,9 +38,9 @@
       <version>2.0.7</version>
     </dependency>
     <dependency>
-      <groupId>javassist</groupId>
+      <groupId>org.javassist</groupId>
       <artifactId>javassist</artifactId>
-      <version>3.12.1.GA</version>
+      <version>3.29.2-GA</version>
     </dependency>
     <!-- SQLite dialect for hibernate -->
     <dependency>
@@ -48,6 +48,7 @@
       <artifactId>sqlite-dialect</artifactId>
       <version>0.1.0</version>
     </dependency>
+
 
     <!-- Hibernate -->
     <dependency>
