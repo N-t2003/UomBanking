@@ -1,5 +1,7 @@
 package gui;
 
+import model.Client;
+
 import javax.swing.*;
 
 public class App {
@@ -7,7 +9,7 @@ public class App {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new WelcomePage();
+                new MainFrame(new Client());
             }
         });
     }

@@ -1,5 +1,5 @@
 package model;
-import javax.persistence.Column;
+import  javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,9 +12,14 @@ import java.util.concurrent.ThreadLocalRandom;
 @Table(name = "Card")
 public class Card{
 
+
+
     @Id
     @Column(name = "CardNumber", nullable = false, length = 20)
     private long cardNumber;
+
+    @Column(name = "AccountID", nullable = false, length = 20)
+    private String accountID;
 
     @Column(name = "ExpirationDate", nullable = false, length = 10)
     private String expirationDate;
@@ -28,8 +33,7 @@ public class Card{
     @Column(name = "Color", nullable = false, length = 20)
     private String color;
 
-    @Column(name = "AccountID", nullable = false, length = 20)
-    private String accountID;
+
 
     
     public Card(){
@@ -112,6 +116,13 @@ public class Card{
         return "This is the number of your Card: "+cardNumber+"\n"+"This is you CVV: "+cvv+"\n"+"Your Expiration Date is: "+genDateExp();
     }
 
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
+    }
 
     public String getColor() {
         return color;

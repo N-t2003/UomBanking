@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CreatePDFS pdf = new CreatePDFS(1);
+        CreatePDFS pdf = new CreatePDFS(2);
 
 
 
