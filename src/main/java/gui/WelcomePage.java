@@ -101,7 +101,7 @@ public class WelcomePage extends JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     welcomePage.dispose();
-                    new MainFrame(client);
+                    new MainFrame();
                 }
             });
 

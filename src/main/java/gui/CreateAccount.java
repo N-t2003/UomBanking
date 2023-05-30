@@ -2,6 +2,8 @@ package gui;
 
 import model.Account;
 import model.Client;
+import org.example.AccountDB;
+import org.example.ClientDB;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -54,10 +56,20 @@ public class CreateAccount extends JFrame {
                 String email = infoPanel.getEmail().getText();
                 String password =  infoPanel.getPasswordField().getText();
                 String confirmPassword  = infoPanel.getPasswordField2().getText();
+                JComboBox costPerTransaction = infoPanel.getCostPerTransaction();
+
 
                 if(checkData(email, phoneNumber, password, confirmPassword)) {
+
+                    //      Creating the client and the clients account
+                    client = new Client(infoPanel.getFirstName().getText(), infoPanel.getLastName().getText(), infoPanel.getPhoneNumber().getText(),
+                            infoPanel.getEmail().getText(), infoPanel.getUsername().getText(), infoPanel.getPasswordField().getText());
+                    ClientDB.saveClient(client);
+
+                    account = new Account(0,"","",infoPanel.getUsername().getText(),(String) infoPanel.getCostPerTransaction().getSelectedItem());
+                    AccountDB.saveAccount(account);
                     createAccount.dispose();
-                    new MainFrame(client);
+                    new MainFrame(account);
                 }
             }
         });
@@ -78,8 +90,6 @@ public class CreateAccount extends JFrame {
         });
 
 //      Creating the client
-        client = new Client(infoPanel.getFirstName().getText(), infoPanel.getLastName().getText(), infoPanel.getPhoneNumber().getText(),
-                infoPanel.getEmail().getText(), infoPanel.getUsername().getText(), infoPanel.getPasswordField().getText());
 
 
 

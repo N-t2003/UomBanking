@@ -50,7 +50,7 @@ public class ClientDB{
     }
 
     //      Fetch a Client
-    public static Client fetchClient(String ID){
+    public static Client fetchClient(String Username){
 //       Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -61,7 +61,7 @@ public class ClientDB{
 
 //       Fetching  client
         Client aClient = new Client();
-        aClient = (Client) session.get(Client.class, ID);
+        aClient = (Client) session.get(Client.class, Username);
 
 //       Saving and closing session
         session.getTransaction().commit();
