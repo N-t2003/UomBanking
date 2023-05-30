@@ -21,8 +21,8 @@ public class Account {
     @Column(name = "ClientUsername", nullable = false, length = 27)
     private String client;
 
-    @Column(name = "CostPerTransactiom", nullable = false, length = 10)
-    private int costPerTransaction;
+    @Column(name = "CostPerTransaction", nullable = false, length = 10)
+    private String costPerTransaction;
 
 
     @Transient
@@ -34,11 +34,12 @@ public class Account {
 
     }
 
-    public Account(double balance, String IBAN, String ID, String client) {
+    public Account(double balance, String IBAN, String ID, String client,String costPerTransaction) {
         this.balance = balance;
         this.IBAN = genIBAN();
         this.ID = genID();
         this.client = client;
+        this.costPerTransaction = costPerTransaction;
         System.out.println(this.IBAN);
     }
 
@@ -139,6 +140,14 @@ public class Account {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    public String getCostPerTransaction() {
+        return costPerTransaction;
+    }
+
+    public void setCostPerTransaction(String costPerTransaction) {
+        this.costPerTransaction = costPerTransaction;
     }
 
     public void settList(ArrayList<Transactions> tList) {

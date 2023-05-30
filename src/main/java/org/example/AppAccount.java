@@ -23,12 +23,12 @@ public class AppAccount {
 //      Creating a new user class
 
 //        User user1 = new User();
-        Account acc1 = new Account(100.2,"","","Astakos");
+       // Account acc1 = new Account(100.2,"","","Astakos");
         Withdraw withdraw = new Withdraw("", "22", 22, "22", "22");
         Transfer transfer = new Transfer("", "22", 22, "22", "22", "22");
         Payment payment = new Payment("", "22", 22, "22", "22", "supermarket");
         Deposit deposit = new Deposit("", "22", 22, "22", "22");
-        Loan loan = new Loan(acc1.getID(),10, "22", 22, "");
+        //Loan loan = new Loan(acc1.getID(),10, "22", 22, "");
 //        Card card = new Card(0, "22", 123, 1, "White");
 
 //        Client cl1 = new Client("1", "1", "1", "1",
@@ -39,12 +39,12 @@ public class AppAccount {
 //        System.out.println(user1);
 
 //      Saving the user
-        session.save(acc1);
+       // session.save(acc1);
         session.save(withdraw);
         session.save(transfer);
         session.save(payment);
         session.save(deposit);
-        session.save(loan);
+        //session.save(loan);
 //        session.save(card);
         session.getTransaction().commit();
         session.close();

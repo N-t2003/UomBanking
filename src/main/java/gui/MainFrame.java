@@ -2,6 +2,8 @@ package gui;
 
 import model.Account;
 import model.Client;
+import org.example.AccountDB;
+import org.example.ClientDB;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -23,15 +25,15 @@ public class MainFrame extends JFrame {
     private JButton loanButton;
     private JButton createCardButton;
 
-    private Account account;
+    protected static Account account;
 
-    public MainFrame(Client client){
+    public MainFrame(Account account){
         JFrame mainFrame = new Template();
 
 //      Initializing components
-        header = Utils.setHeader("Welcome back " + "<username>");
+        header = Utils.setHeader("Welcome back " + ClientDB.fetchClient(account.getClient()).getFirstName());
         expensesPanel = new ExpensesPanel();
-        balancePanel = new BalancePanel();
+        balancePanel = new BalancePanel(account);
         spendCategoriesPanel = new SpendCategoriesPanel();
         cardPanel = new CardPanel();
         transactionHistoryButton = new JButton("Transaction History");
@@ -62,7 +64,7 @@ public class MainFrame extends JFrame {
         });
 
 //      Creating account
-        account = new Account(0, "", "", client.getUsername());
+       // account = new Account(0, "", "", client.getUsername(),"");
 
 //      Adding components to the frame
         mainFrame.add(header);
@@ -76,6 +78,10 @@ public class MainFrame extends JFrame {
 //      Basic settings
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    public MainFrame() {
 
     }
 }
@@ -184,10 +190,11 @@ class BalancePanel extends JPanel{
     private JLabel balance;
     private JButton newTransactionButton;
 
-    public BalancePanel() {
+    public BalancePanel(Account account) {
 //      Initializing components
         header = Utils.setHeader("Your account balance");
-        balance = new JLabel("1500$");
+
+        balance = new JLabel(String.valueOf(account.getBalance()));
         newTransactionButton = new JButton("New Transaction");
 
 //      Setting up header

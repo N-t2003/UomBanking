@@ -15,6 +15,7 @@
         <property name="balance" column="balance" type="double"/>
         <property name="IBAN" column="IBAN" type="string"/>
         <property name="client" column="clientUsername" type="string"/>
+        <property name="costPerTransaction" column="CostPerTransaction" type="string"/>
 
     </class>
 

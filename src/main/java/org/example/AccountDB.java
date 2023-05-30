@@ -48,7 +48,7 @@ public class AccountDB {
     }
 
 //  Fetch an Account
-    public static Account fetchAccount(int ID){
+    public static Account fetchAccount(String ID){
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
