@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class LoanFrame extends JFrame {
 
+    //defining variables
     private JLabel header;
 
     private JLabel message;
@@ -25,46 +26,52 @@ public class LoanFrame extends JFrame {
 
     public LoanFrame(){
 
+        //Setting template
         JFrame Loans = new Template();
 
-        header = Utils.setHeader("Take loans with our bank system!");
-        message = new JLabel("Manage and pay your loans fast and easy");
-        message1 = new JLabel("Your loans");
-        NewLoan = new JButton("New Loan");
-        ReturnToTheMainPage = new JButton("Return to the main page");
-        loanReceipt = new JButton("Download loan receipt");
-
-
+        //creating new JTable to save our loans
         String[] LoansColumns = new String[]{"Amount", "Expiration Date"};
         String[][] LoansInfo = new String[][]{{"1000$","1/6/23"},{"90$","3/3/23"},{"250$","9/10/23"}};
-
         LoanTable = new JTable(LoansInfo,LoansColumns);
-        JScrollPane jp = new JScrollPane(LoanTable);
-        jp.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         LoanTable.setForeground(Color.BLACK);
         LoanTable.setEnabled(false);
 
+        //putting scrollpane in table
+        JScrollPane jp = new JScrollPane(LoanTable);
+        jp.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+        jp.setBounds(440,360,300,130);
 
+        //settings for header
+        header = Utils.setHeader("Take loans with our bank system!");
         header.setBounds(320, 100, 800, 100);
         header.setFont(new Font("Courier",Font.PLAIN,35));
 
+        //settings for message
+        message = new JLabel("Manage and pay your loans fast and easy");
         message.setBounds(400,140,600,80);
         message.setFont(new Font("Courier",Font.PLAIN,20));
 
+        //settings for message1
+        message1 = new JLabel("Your loans");
         message1.setBounds(520,300,500,60);
         message1.setFont(new Font("Courier", Font.PLAIN,30));
 
+        //settings for "return to main page" button
+        ReturnToTheMainPage = new JButton("Return to the main page");
         ReturnToTheMainPage = Utils.returnToMainPageButton(Loans);
         ReturnToTheMainPage.setBounds(1000,710,180,30);
 
+        //settings for loanReceipt button
+        loanReceipt = new JButton("Download loan receipt");
         loanReceipt.setBounds(480,680,200,30);
 
+        //settings for new loan button
+        NewLoan = new JButton("New Loan");
         NewLoan.setBounds(500,580,150,30);
 
-        jp.setBounds(440,360,300,130);
 
 
-
+        //add actionlistener to new loan button
         NewLoan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,6 +79,7 @@ public class LoanFrame extends JFrame {
             }
         });
 
+        //putting all into template
         Loans.add(header);
         Loans.add(message);
         Loans.add(message1);
