@@ -41,8 +41,8 @@ public class CreateLoanFrame extends JFrame{
         amountField.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                amountField.setText("");
-            }
+                amountField.setText(""); //όταν ο χρήστης κάνει κλικ στο πεδίο εισαγωγής ποσού, αυτό καθαρίζεται αυτόματα
+            }//όλα τα υπόλοιπα από κάτω υπάρχουν, γιατί πρέπει να υπάροχουν
 
             @Override
             public void mousePressed(MouseEvent e) {
@@ -58,6 +58,7 @@ public class CreateLoanFrame extends JFrame{
             }
         });
 
+        //πεδίο των δόσεων
         dosesField = new JTextField();
         dosesLabel = new JLabel("Doses");
         dosesInformation = new JLabel("You can select 1 to 12 doses");
@@ -65,6 +66,7 @@ public class CreateLoanFrame extends JFrame{
         dosesField.setBounds(500,320,230,35);
         dosesInformation.setBounds(500,350,200,35);
 
+        //dropdownlist με τους λόγους αίτησης δανείου
         reasonLabel = new JLabel("Reason");
         String[] choices = { "I want to make a big purchace","I want to start my business", "I have a health issue","I want to buy a house","Other"};
         dropDownList = new JComboBox<String>(choices);
@@ -77,16 +79,19 @@ public class CreateLoanFrame extends JFrame{
         returnToTheMainPageButton = Utils.returnToMainPageButton(frame);
         returnToTheMainPageButton.setBounds(970,720,200,35);
 
+
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String loanAmountString = amountField.getText();
                 String dosesString = dosesField.getText();
 
+                //έλεγχος αν το πεδιο loan είναι αριθμός
                 if(loanAmountString.matches("[0-9]+"))
                     loanAmount = Double.parseDouble(loanAmountString);
                 else
                     JOptionPane.showMessageDialog(submitButton, "Enter a valid amount", "ERROR", JOptionPane.ERROR_MESSAGE);
 
+                //έλεγχος αν το πεδιο doses είναι αριθμός
                 if(dosesString.matches("[0-9]+"))
                     doses = Integer.parseInt(dosesString);
                 else
@@ -95,6 +100,7 @@ public class CreateLoanFrame extends JFrame{
                 if(doses<1 || doses>12)
                     JOptionPane.showMessageDialog(submitButton, "You can select 1 to 12 doses", "ERROR", JOptionPane.ERROR_MESSAGE);
 
+                //υπολογισμός ημερομηνίας λήξης δανείου και εμφάνιση SuccessLoanFrame
                 if(CheckLoanAmount(loanAmount, balance) && (doses>=1 && doses<=12) && loanAmountString.matches("[0-9]+") && dosesString.matches("[0-9]+")){
                     //frame success
                     double totalAmount = CalculateTotalLoanAmount(loanAmount, doses);
@@ -105,6 +111,7 @@ public class CreateLoanFrame extends JFrame{
                     frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το LoanSuccessFrame και κλείνει το παράθυρο των δανείων.
                 }
 
+                //αν δεν τηρείται η συνθήκη για το δάνειο, εμφανίζεται το LoanDeniedFrame
                 if(!CheckLoanAmount(loanAmount, balance)){
                     //frame denied
                     new LoanDeniedFrame();
