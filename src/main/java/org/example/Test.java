@@ -11,7 +11,10 @@ public class Test {
 //         Client aClient = new Client("","","","","mastercard","DVDFD");
 //         ClientDB.saveClient(aClient);
 
-        Card aCard = new Card("",0,"",0,"","");
-        CardDB.saveCard(aCard);
+//        Card aCard = new Card("",0,"",0,"","");
+//        CardDB.saveCard(aCard);
+
+        Account acc = AccountDB.fetchAccount("Skourr");
+        System.out.println(acc);
     }
 }

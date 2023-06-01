@@ -30,6 +30,9 @@ public class Card{
     @Column(name = "Color", nullable = false, length = 20)
     private String color;
 
+    @Column(name = "cardName", nullable = false, length = 20)
+    private String cardName;
+
 
 
     
@@ -37,13 +40,14 @@ public class Card{
 
     }
     
-    public Card(String accountID, long cardNumber, String dateExp, int cvv, String type, String color) {
+    public Card(String accountID, long cardNumber, String dateExp, int cvv, String type, String color,String cardName) {
         this.accountID = accountID;
         this.cardNumber = genNum();
         this.expirationDate = genDateExp();
         this.cvv = genCVV();
         this.type = type;
         this.color = color;
+        this.cardName = cardName;
     }
 
     
@@ -93,6 +97,14 @@ public class Card{
 
     public void setCvv(int cvv) {
         this.cvv = cvv;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
     }
 
     public String getExpirationDate() {

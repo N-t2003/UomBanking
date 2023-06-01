@@ -8,13 +8,14 @@
     <!-- Account Mapping   -->
     <class name="Account" table="Account">
 
-        <id name="ID" column="ID" type="string">
+        <id name="client" column="clientUsername" type="string">
             <generator class="assigned"/>
+
         </id>
 
         <property name="balance" column="balance" type="double"/>
         <property name="IBAN" column="IBAN" type="string"/>
-        <property name="client" column="clientUsername" type="string"/>
+        <property name="ID" column="ID" type="string"/>
         <property name="costPerTransaction" column="CostPerTransaction" type="string"/>
 
     </class>
@@ -51,11 +52,11 @@
     <!-- Card Mapping-->
     <class name="Card" table="Card">
 
-        <id name="cardNumber" column="CardNumber" type="long">
+        <id name="accountID" column="AccountID" type="string">
             <generator class="assigned"/>
         </id>
 
-        <property name="accountID" column="AccountID" type="string"/>
+        <property name="cardNumber" column="CardNumber" type="long"/>
         <property name="expirationDate" column="ExpirationDate" type="string"/>
         <property name="cvv" column="CVV" type="int"/>
         <property name="type" column="Type" type="string"/>

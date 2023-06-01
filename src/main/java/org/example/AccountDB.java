@@ -48,7 +48,7 @@ public class AccountDB {
     }
 
 //  Fetch an Account
-    public static Account fetchAccount(String ID){
+    public static Account fetchAccount(String client){
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -59,7 +59,7 @@ public class AccountDB {
 
 //      Fetching the account
         Account account = new Account();
-        account = (Account) session.get(Account.class, ID);
+        account = (Account) session.get(Account.class, client);
 
 //      Saving and closing session
         session.getTransaction().commit();
