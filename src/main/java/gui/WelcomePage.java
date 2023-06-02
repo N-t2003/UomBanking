@@ -1,7 +1,10 @@
 package gui;
 
+import model.Account;
 import model.Client;
 import model.Main;
+import org.example.AccountDB;
+import org.example.ClientDB;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -18,6 +21,16 @@ public class WelcomePage extends JFrame {
     public JFrame welcomePage;
 
     private Client client;
+    private Account account;
+
+    private JTextField username;
+    public JTextField getUsername() {
+        return username;
+    }
+
+
+
+
 
      public WelcomePage(){
          welcomePage = new TemplateNotLoggedIn();
@@ -71,7 +84,6 @@ public class WelcomePage extends JFrame {
      }
 
     class InfoPanel extends JPanel{
-
         private JCheckBox showPassword;
         private JPasswordField passwordField;
         public JButton signInButton;
@@ -100,8 +112,33 @@ public class WelcomePage extends JFrame {
                 @Override
 
                 public void actionPerformed(ActionEvent e) {
-                    welcomePage.dispose();
-                    new MainFrame();
+
+                    JTextField usernameField = (JTextField) infoPanel.getComponent(1);
+                    String username = usernameField.getText();
+                    String password = passwordField.getText();
+//                    //check database for user verify
+
+                    if (ClientDB.fetchClient(username) != null) {
+                        if (ClientDB.fetchClient(username).getPassword().equals(password)) {
+                            account = AccountDB.fetchAccount(username);
+                            welcomePage.dispose();
+                            new MainFrame(account);
+                        } else {
+                            JOptionPane.showMessageDialog(welcomePage, "Incorrect password. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                            // Clear the password field
+                            passwordField.setText("");
+                            // Request focus on the password field for user convenience
+                            passwordField.requestFocus();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(welcomePage, "Invalid username. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                        // Clear both the username and password fields
+                        usernameField.setText("");
+                        passwordField.setText("");
+                        // Request focus on the username field for user convenience
+                        usernameField.requestFocus();
+                    }
+
                 }
             });
 

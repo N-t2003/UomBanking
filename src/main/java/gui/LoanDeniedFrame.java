@@ -38,6 +38,7 @@ public class LoanDeniedFrame extends JFrame {
 
         loanPolicyButton = new JButton("Loan Policy");
 
+        //ρύθμιση loanPolicyButton που εμφανίζει τις προυποθέσεις δανέιου
         loanPolicyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,6 +47,7 @@ public class LoanDeniedFrame extends JFrame {
         });
 
         enterInfoAgainButton = new JButton("Enter again your information");
+        //ρύθμιση enterInfoAgainButton όπου επιστρέφει τον χρήστη στην CreateLoanFrame
         enterInfoAgainButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

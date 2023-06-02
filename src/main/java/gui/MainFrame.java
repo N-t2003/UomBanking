@@ -1,26 +1,32 @@
 package gui;
 
 import model.Account;
+import model.Card;
 import model.Client;
 import org.example.AccountDB;
+import org.example.CardDB;
 import org.example.ClientDB;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class MainFrame extends JFrame {
     private JLabel header;
     private JPanel expensesPanel;
     private JPanel balancePanel;
     private JPanel spendCategoriesPanel;
-    private JPanel cardPanel;
+    static JPanel cardPanel;
     private JButton transactionHistoryButton;
     private JButton loanButton;
     private JButton createCardButton;
@@ -29,6 +35,8 @@ public class MainFrame extends JFrame {
 
     public MainFrame(Account account){
         JFrame mainFrame = new Template();
+
+
 
 //      Initializing components
         header = Utils.setHeader("Welcome back " + ClientDB.fetchClient(account.getClient()).getFirstName());
@@ -55,6 +63,8 @@ public class MainFrame extends JFrame {
 
 //      Setting up createCard button
         createCardButton.setBounds(370, 710, 250, 30);
+
+
         createCardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +83,29 @@ public class MainFrame extends JFrame {
         mainFrame.add(spendCategoriesPanel);
         mainFrame.add(loanButton);
         mainFrame.add(cardPanel);
-        mainFrame.add(createCardButton);
+
+
+        // if user has already create the card
+        if(CardDB.fetchCard(account.getID()) == null){
+            mainFrame.add(createCardButton);
+
+        }
+        else {
+            Card card = CardDB.fetchCard(account.getID());
+            String colorString = card.getColor();
+            String rgbString = colorString.substring(colorString.indexOf("[") + 1, colorString.indexOf("]"));
+            String[] rgbValues = rgbString.split(",");
+
+            int red = Integer.parseInt(rgbValues[0].substring(rgbValues[0].indexOf("=") + 1).trim());
+            int green = Integer.parseInt(rgbValues[1].substring(rgbValues[1].indexOf("=") + 1).trim());
+            int blue = Integer.parseInt(rgbValues[2].substring(rgbValues[2].indexOf("=") + 1).trim());
+
+            Color color = new Color(red, green, blue);
+            //cardPanel.add(new PreviewCardFrame(account.getID() ,card.getType(), card.genNum(), card.getExpirationDate(), card.getCardName(), card.genCVV(),color));
+
+        }
+
+
 
 //      Basic settings
         mainFrame.setVisible(true);

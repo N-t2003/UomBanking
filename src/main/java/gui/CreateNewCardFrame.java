@@ -1,6 +1,8 @@
 package gui;
 
 import model.Card;
+import org.example.CardDB;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,7 +108,8 @@ public class CreateNewCardFrame extends JFrame {
                 else
                 {
                     //Δημιουργείται η κάρτα
-                    Card card = new Card(accountID,0,"",0,"MasterCard", "");
+                    Card card = new Card(accountID,0,"",0,"MasterCard", color.toString(),"");
+                    CardDB.saveCard(card);
                     long cardNum = card.getCardNumber();
                     int cardCVV = card.getCvv();
                     String cardExp = card.getExpirationDate();

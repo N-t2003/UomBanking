@@ -39,6 +39,7 @@ public class LoanSuccessFrame extends JFrame{
 
 
 
+        //πίνακας δανείων μαζί με ημερομηνία λήξης
         Object rowData[][] = new Object[4][2];
         String columnNames[] = { "Amount", "Expiration Date"};
 
@@ -58,6 +59,7 @@ public class LoanSuccessFrame extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    //μέθοδος υπολογισμού ημερομηνίας τελευταίας δόσης δανείου
     public  String calcDate(String currentDate, int doses){
         int currentDay, currentMonth, currentYear;
         int expirationDay = 0;
@@ -69,15 +71,19 @@ public class LoanSuccessFrame extends JFrame{
         currentYear = Integer.parseInt(currentDate.substring(6,8));
 
         expirationMonth = currentMonth + doses;
+        //υπολογισμός αν το έτος δεν αλλάζει
         if(expirationMonth>= 1 && expirationMonth<=12){
             expirationYear = currentYear;
+            //expirationMonth όλοι οι μήνες με 31 μέρες για υπολογισμό expirationDay
             if((expirationMonth == 1 || expirationMonth == 3 || expirationMonth == 5 || expirationMonth == 7 || expirationMonth == 8 || expirationMonth == 10 || expirationMonth == 12) && (currentDay == 31)){
                 expirationDay = 31;
             }
+            //expirationMonth όλοι οι μήνες με 30 μέρες για υπολογισμό expirationDay
             else if((expirationMonth == 4 || expirationMonth == 6 || expirationMonth == 9 || expirationMonth == 11) && (currentDay == 31)){
                 expirationDay = 1;
                 expirationMonth++;
             }
+            //υπολογισμός αν ο expirationMonth ειναι ο Φεβρουάριος και αν το έτος είναι δίσεκτο ή οχι για υπολογισμό expirationDay
             else if(expirationMonth == 2 && (currentDay == 29 || currentDay == 30 || currentDay ==31)){
                 int year = currentYear + 2000;
                 boolean isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
@@ -95,6 +101,7 @@ public class LoanSuccessFrame extends JFrame{
             }
         }
 
+        //υπολογισμός αν το έτος αλλάζει
         else{
             expirationMonth = expirationMonth % 12;
             if((expirationMonth != 0) || (expirationMonth+12==12) ){
@@ -124,11 +131,10 @@ public class LoanSuccessFrame extends JFrame{
             }
         }
 
+        //φορμάς expirationDate DD/MM/YY
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat(Integer.toString(expirationDay)+"/"+Integer.toString(expirationMonth)+"/"+Integer.toString(expirationYear));
         String expirationDate = formatter.format(date);
         return expirationDate;
     }
-
-
 }

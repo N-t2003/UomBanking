@@ -49,7 +49,7 @@ public class CardDB {
     }
 
     //  Fetch Card
-    public static Card fetchCard(long ID){
+    public static Card fetchCard( String AccountID){
 //      Setting up the transaction between the app and the database
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addResource("mapping.hbm.xml");
         StandardServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -60,7 +60,7 @@ public class CardDB {
 
 //      Fetching Card
         Card card = new Card();
-        card = (Card) session.get(Card.class, ID);
+        card = (Card) session.get(Card.class, AccountID);
 
 //      Saving and closing session
         session.getTransaction().commit();
