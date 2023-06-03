@@ -36,3 +36,4 @@ build/
 /.idea/
 /src/main/java/gui/MainTest.java
 
+/Database.db
