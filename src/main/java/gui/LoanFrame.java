@@ -24,7 +24,7 @@ public class LoanFrame extends JFrame {
 
 
 
-    public LoanFrame(){
+    public LoanFrame(String accountId){
 
         //Setting template
         JFrame Loans = new Template();
@@ -75,7 +75,7 @@ public class LoanFrame extends JFrame {
         NewLoan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreateLoanFrame();
+                new CreateLoanFrame(accountId);
             }
         });
 

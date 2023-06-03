@@ -1,10 +1,10 @@
 package gui;
 
+import model.Loan;
+import org.example.LoanDB;
+
 import javax.swing.*;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,7 +18,7 @@ public class LoanSuccessFrame extends JFrame{
     private JButton returnToTheMainPageButton;
     private JButton receiptButton;
 
-    public LoanSuccessFrame(String currentDate, int doses) {
+    public LoanSuccessFrame(String accountId, double loanAmount, String des, String currentDate, int doses) {
 
         header = Utils.setHeader("Your loan was made successfully!");
         header.setBounds(300,100,900,50);
@@ -26,6 +26,11 @@ public class LoanSuccessFrame extends JFrame{
         String expirationDate = calcDate(currentDate, doses);
         label1 = new JLabel("Make sure to pay it off by "+expirationDate);
         label1.setBounds(500, 110, 700, 100 );
+
+
+
+        Loan aLoan = new Loan(accountId,loanAmount,des,currentDate,expirationDate,doses,"");
+        LoanDB.saveLoan(aLoan);
 
         label2 = new JLabel("Your loans");
         label2.setBounds(500, 250, 1000, 100 );
