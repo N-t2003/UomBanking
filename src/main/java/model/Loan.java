@@ -14,6 +14,12 @@ public class Loan {
     @Column(name = "LoanAmount", nullable = false, length = 20)
     private double loanAmount;
 
+    @Column(name = "DateOfApply", nullable = false, length = 10)
+    private String date;
+
+    @Column(name = "Description", nullable = false, length = 50)
+    private String description;
+
     @Column(name = "ExpirationDate", nullable = false, length = 20)
     private String dateExp; //δεν χρησιμοποιήθηκε κάπου με βάση το word
 
@@ -30,12 +36,14 @@ public class Loan {
     public Loan() {
     }
 
-    public Loan(String accountID, double loanAmount, String dateExp, int doses, String id) {
+    public Loan(String accountID, double loanAmount, String description, String currDate, String dateExp, int doses, String id) {
         this.accountID = accountID;
         this.loanAmount = loanAmount;
+        this.date = currDate;
         this.dateExp = dateExp;
         this.doses = doses;
         this.id = genID();
+        this.description = description;
     }
 
     public double loanDose(double loanAmount,int doses){

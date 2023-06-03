@@ -1,6 +1,7 @@
 package gui;
 
 import model.Account;
+import model.Loan;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,8 +27,9 @@ public class CreateLoanFrame extends JFrame{
     private double loanAmount;
     private double balance = 1000; //ΘΑ ΠΑΙΡΝΕΙ ΤΙΜΗ ΑΠΟ ΤΗΝ ΒΑΣΗ
     private int doses;
+    String des;
 
-    public CreateLoanFrame(){
+    public CreateLoanFrame(String accountId){
         header = Utils.setHeader("Take a loan");
         header.setBounds(500,100,300,50);
 
@@ -70,6 +72,9 @@ public class CreateLoanFrame extends JFrame{
         reasonLabel = new JLabel("Reason");
         String[] choices = { "I want to make a big purchace","I want to start my business", "I have a health issue","I want to buy a house","Other"};
         dropDownList = new JComboBox<String>(choices);
+
+        des = ((JTextField)dropDownList.getEditor().getEditorComponent()).getText();
+
         reasonLabel.setBounds(450,390,50,50);
         dropDownList.setBounds(500,400,200,35);
 
@@ -107,14 +112,14 @@ public class CreateLoanFrame extends JFrame{
                     Date date = new Date();
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
                     String currentDate = formatter.format(date);
-                    new LoanSuccessFrame(currentDate, doses);
+                    new LoanSuccessFrame(accountId,loanAmount,des,currentDate, doses);
                     frame.dispose(); //με το που πατάμε το κουμπί ανοίγει το LoanSuccessFrame και κλείνει το παράθυρο των δανείων.
                 }
 
                 //αν δεν τηρείται η συνθήκη για το δάνειο, εμφανίζεται το LoanDeniedFrame
                 if(!CheckLoanAmount(loanAmount, balance)){
                     //frame denied
-                    new LoanDeniedFrame();
+                    new LoanDeniedFrame(accountId);
                     frame.dispose();
                 }
             }
@@ -154,4 +159,6 @@ public class CreateLoanFrame extends JFrame{
         totalLoanAmount = loanAmount +interests;
         return totalLoanAmount;
     }
+
 }
+

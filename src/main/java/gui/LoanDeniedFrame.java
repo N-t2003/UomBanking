@@ -18,7 +18,7 @@ public class LoanDeniedFrame extends JFrame {
     private JButton returnToTheMainPageButton;
 
 
-    public LoanDeniedFrame(){
+    public LoanDeniedFrame(String accountId){
         header = Utils.setHeader("Your loan request was denied!");
         header.setBounds(300,100,900,50);
 
@@ -51,7 +51,7 @@ public class LoanDeniedFrame extends JFrame {
         enterInfoAgainButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreateLoanFrame();
+                new CreateLoanFrame(accountId);
                 frame.dispose();
             }
         });

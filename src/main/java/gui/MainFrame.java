@@ -57,7 +57,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainFrame.dispose();
-                //new LoanFrame();
+                new LoanFrame(account.getID());
             }
         });
 
