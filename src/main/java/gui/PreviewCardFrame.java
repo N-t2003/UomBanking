@@ -80,7 +80,7 @@ public class PreviewCardFrame extends JFrame {
         returnToMainPageButton = Utils.returnToMainPageButton(prFrame);
         returnToMainPageButton.setBounds(550, 550, 200, 30);
 
-        //prFrame.add(returnToMainPageButton);
+        prFrame.add(returnToMainPageButton);
 
     }
 
